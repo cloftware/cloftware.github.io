@@ -1,13 +1,1169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloftware</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloftware — Next-Gen Custom Software, AI, Cloud & IoT</title>
+<meta name="description" content="Cloftware builds next-generation custom software — full-stack web apps, AI integration, IoT systems and cloud infrastructure — for clients across USA, UK, India, Germany and Canada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F8FC;
+    --surface:#FFFFFF;
+    --surface-2:#EEF1FA;
+    --ink:#12141C;
+    --ink-soft:#5A5F72;
+    --ink-faint:#9297AB;
+    --line:#E3E6F1;
+    --brand:#2E4CFF;
+    --brand-dark:#1B2FBD;
+    --brand-light:#EBEEFF;
+    --teal:#00BFA6;
+    --teal-light:#E3FBF6;
+    --amber:#FFB020;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow-sm: 0 1px 2px rgba(18,20,28,0.04), 0 1px 1px rgba(18,20,28,0.03);
+    --shadow-md: 0 8px 24px rgba(18,20,28,0.08);
+    --shadow-lg: 0 24px 64px rgba(18,20,28,0.12);
+    --max: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none; margin:0; padding:0;}
+  button{font-family:inherit; cursor:pointer;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{
+    outline:2.5px solid var(--brand);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--brand);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:500;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--teal);
+    border-radius:50%;
+    display:inline-block;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .section{padding:96px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(28px, 3.4vw, 42px);
+    margin-top:14px;
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--ink-soft);
+    font-size:17px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(247,248,252,0.82);
+    backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:20px;
+    color:var(--ink);
+  }
+  .logo-mark{
+    width:34px; height:34px;
+    border-radius:9px;
+    background:linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
+    position:relative;
+    flex-shrink:0;
+  }
+  .logo-mark::before, .logo-mark::after{
+    content:"";
+    position:absolute;
+    border-radius:2px;
+    background:rgba(255,255,255,0.92);
+  }
+  .logo-mark::before{
+    width:14px; height:3px;
+    top:11px; left:10px;
+  }
+  .logo-mark::after{
+    width:8px; height:3px;
+    top:19px; left:10px;
+  }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--ink-soft);
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-weight:600;
+    font-size:14.5px;
+    padding:11px 22px;
+    border-radius:100px;
+    border:1px solid transparent;
+    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:#fff;
+    box-shadow:var(--shadow-sm);
+  }
+  .btn-primary:hover{
+    background:var(--brand-dark);
+    transform:translateY(-1px);
+    box-shadow:var(--shadow-md);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    border-color:var(--line);
+    background:var(--surface);
+  }
+  .btn-ghost:hover{
+    border-color:var(--brand);
+    color:var(--brand-dark);
+  }
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:10px;
+    width:40px; height:40px;
+    align-items:center;
+    justify-content:center;
+  }
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    content:"";
+    display:block;
+    width:18px; height:2px;
+    background:var(--ink);
+    position:relative;
+    transition:0.2s;
+  }
+  .menu-toggle span::before{position:absolute; top:-6px;}
+  .menu-toggle span::after{position:absolute; top:6px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(36px, 5vw, 60px);
+    line-height:1.06;
+    margin-top:18px;
+    letter-spacing:-0.02em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--brand) 0%, var(--teal) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:520px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    margin-top:32px;
+    flex-wrap:wrap;
+  }
+  .btn-lg{
+    padding:14px 28px;
+    font-size:15.5px;
+  }
+
+  .region-strip{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .region-strip .label{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .region-chips{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .region-chip{
+    font-size:13px;
+    font-weight:600;
+    padding:6px 13px;
+    border-radius:100px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+  }
+
+  /* Signature stack diagram */
+  .stack-wrap{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:32px 28px 28px;
+    box-shadow:var(--shadow-lg);
+  }
+  .stack-wrap .stack-title{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .stack-layers{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .stack-layer{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 16px;
+    border-radius:14px;
+    position:relative;
+    z-index:2;
+  }
+  .stack-layer .icon{
+    width:38px; height:38px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .stack-layer .icon svg{width:19px; height:19px;}
+  .stack-layer .txt strong{
+    display:block;
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .stack-layer .txt span{
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+  .stack-layer.iot .icon{background:#FFF3E0; color:#DE8A00;}
+  .stack-layer.cloud .icon{background:var(--teal-light); color:#00947F;}
+  .stack-layer.ai .icon{background:var(--brand-light); color:var(--brand-dark);}
+  .stack-layer.app .icon{background:#12141C; color:#fff;}
+  .stack-layer.app{background:var(--surface-2);}
+
+  .stack-connector{
+    width:2px;
+    height:26px;
+    margin-left:35px;
+    position:relative;
+    background:var(--line);
+    overflow:hidden;
+  }
+  .stack-connector::after{
+    content:"";
+    position:absolute;
+    left:-2px;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--brand);
+    top:-10px;
+    animation:flowDot 2.2s linear infinite;
+  }
+  .stack-connector:nth-of-type(2)::after{animation-delay:0s; background:var(--amber);}
+  .stack-connector:nth-of-type(4)::after{animation-delay:0.7s; background:var(--teal);}
+  .stack-connector:nth-of-type(6)::after{animation-delay:1.4s; background:var(--brand);}
+  @keyframes flowDot{
+    0%{top:-10px; opacity:0;}
+    15%{opacity:1;}
+    85%{opacity:1;}
+    100%{top:30px; opacity:0;}
+  }
+
+  /* ---------- LOGO / TRUST STRIP ---------- */
+  .trust-strip{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .trust-strip .wrap{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    flex-wrap:wrap;
+    justify-content:space-between;
+  }
+  .trust-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--ink-faint);
+    font-size:13.5px;
+    font-weight:600;
+    font-family:var(--font-mono);
+  }
+  .trust-item .dot{width:6px; height:6px; border-radius:50%; background:var(--teal);}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .service-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px;
+    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
+    border-color:transparent;
+  }
+  .service-card .icon-box{
+    width:46px; height:46px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+  }
+  .service-card .icon-box svg{width:22px; height:22px;}
+  .service-card h3{
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  .service-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .c1{background:var(--brand-light); color:var(--brand-dark);}
+  .c2{background:var(--teal-light); color:#00947F;}
+  .c3{background:#FFF3E0; color:#DE8A00;}
+  .c4{background:#FDEBEE; color:#D6336C;}
+  .c5{background:#EAF6FF; color:#0B7CC9;}
+  .c6{background:#F0EEFF; color:#6C4EE0;}
+
+  /* ---------- CAPABILITIES ---------- */
+  .cap-strip{
+    background:var(--ink);
+    border-radius:24px;
+    padding:48px 40px;
+    color:#fff;
+  }
+  .cap-strip .section-head{
+    max-width:560px;
+    margin-bottom:34px;
+  }
+  .cap-strip .section-head h2{color:#fff;}
+  .cap-strip .eyebrow{color:var(--teal);}
+  .cap-strip .section-head p{color:rgba(255,255,255,0.66);}
+  .tag-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tag{
+    font-family:var(--font-mono);
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:100px;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.14);
+    color:rgba(255,255,255,0.88);
+  }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+  .portfolio-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .portfolio-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-lg);
+  }
+  .portfolio-media{
+    height:150px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .portfolio-media span{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:26px;
+    color:rgba(255,255,255,0.95);
+    z-index:2;
+    letter-spacing:-0.01em;
+  }
+  .portfolio-media::before{
+    content:"";
+    position:absolute; inset:0;
+    opacity:0.9;
+  }
+  .pm-worvio::before{background:linear-gradient(135deg,#2E4CFF,#7A8FFF);}
+  .pm-buldel::before{background:linear-gradient(135deg,#00BFA6,#7FE8D8);}
+  .pm-iot::before{background:linear-gradient(135deg,#DE8A00,#FFC15E);}
+  .portfolio-body{
+    padding:22px 22px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .portfolio-body .tagline{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-faint);
+  }
+  .portfolio-body h3{font-size:18px;}
+  .portfolio-body p{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0;
+    flex:1;
+  }
+  .portfolio-link{
+    margin-top:6px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--brand-dark);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .portfolio-link svg{width:14px; height:14px; transition:transform 0.18s ease;}
+  .portfolio-card:hover .portfolio-link svg{transform:translate(2px,-2px);}
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+    counter-reset:step;
+  }
+  .process-step{
+    padding:0 20px 0 0;
+    position:relative;
+  }
+  .process-step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    top:19px; right:0;
+    width:20px; height:1px;
+    background:var(--line);
+    display:none;
+  }
+  .process-num{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--brand);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .process-step h4{font-size:16px; margin-bottom:8px;}
+  .process-step p{font-size:14px; color:var(--ink-soft); margin:0;}
+
+  /* ---------- TEAM ---------- */
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .team-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 20px;
+    text-align:left;
+  }
+  .team-avatar{
+    width:52px; height:52px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:16px;
+    color:#fff;
+    margin-bottom:16px;
+  }
+  .ta1{background:linear-gradient(135deg,#2E4CFF,#5F76FF);}
+  .ta2{background:linear-gradient(135deg,#00BFA6,#3FDFC7);}
+  .ta3{background:linear-gradient(135deg,#DE8A00,#FFB94D);}
+  .ta4{background:linear-gradient(135deg,#6C4EE0,#9A85F2);}
+  .team-card h4{font-size:15.5px; margin-bottom:4px;}
+  .team-card .role{
+    font-size:13px;
+    color:var(--brand-dark);
+    font-weight:600;
+    margin-bottom:10px;
+    display:block;
+  }
+  .team-card p{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  /* ---------- CONTACT / CTA ---------- */
+  .cta-band{
+    background:linear-gradient(120deg, var(--brand) 0%, #1B2FBD 100%);
+    border-radius:28px;
+    padding:64px 48px;
+    color:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";
+    position:absolute;
+    width:420px; height:420px;
+    background:radial-gradient(circle, rgba(0,191,166,0.35), transparent 70%);
+    top:-160px; right:-120px;
+  }
+  .cta-band h2{
+    color:#fff;
+    font-size:clamp(26px, 3.6vw, 40px);
+    position:relative;
+    z-index:1;
+  }
+  .cta-band p{
+    color:rgba(255,255,255,0.82);
+    max-width:520px;
+    margin:16px auto 0;
+    font-size:16px;
+    position:relative;
+    z-index:1;
+  }
+  .cta-band .hero-actions{
+    justify-content:center;
+    position:relative;
+    z-index:1;
+  }
+  .cta-band .btn-primary{background:#fff; color:var(--brand-dark);}
+  .cta-band .btn-primary:hover{background:var(--amber); color:var(--ink);}
+  .cta-band .btn-ghost{
+    background:transparent;
+    border-color:rgba(255,255,255,0.4);
+    color:#fff;
+  }
+  .cta-band .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,0.1);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:56px 0 32px;
+  }
+  .footer-top{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:32px;
+    padding-bottom:40px;
+  }
+  .footer-brand p{
+    color:var(--ink-soft);
+    font-size:14px;
+    margin-top:14px;
+    max-width:280px;
+  }
+  .footer-col h5{
+    font-family:var(--font-mono);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-faint);
+    margin-bottom:16px;
+  }
+  .footer-col ul{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+  }
+  .footer-col a{
+    font-size:14px;
+    color:var(--ink-soft);
+    transition:color 0.18s;
+  }
+  .footer-col a:hover{color:var(--brand-dark);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .footer-bottom p{
+    font-size:13px;
+    color:var(--ink-faint);
+    margin:0;
+  }
+  .footer-regions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .footer-regions span{
+    font-size:12px;
+    font-family:var(--font-mono);
+    color:var(--ink-faint);
+  }
+
+  /* reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr); row-gap:32px;}
+    .team-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed;
+      top:68px; left:0; right:0;
+      background:var(--surface);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 24px;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      transform:translateY(-140%);
+      transition:transform 0.25s ease;
+      z-index:99;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .menu-toggle{display:flex;}
+    .nav-cta .btn-ghost{display:none;}
+    .section{padding:64px 0;}
+    .services-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr 1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    .cap-strip{padding:36px 22px;}
+    .cta-band{padding:48px 24px;}
+    .region-strip{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media (max-width:420px){
+    .team-grid{grid-template-columns:1fr;}
+    .wrap{padding:0 18px;}
+  }
+</style>
 </head>
 <body>
-  <h1>Welcome to Cloftware 🚀</h1>
-  <p>Our website is live on GitHub Pages.</p>
-   <p>2026</p>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      Cloftware
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Get a quote</a>
+      <a href="#contact" class="btn btn-primary">Start a project</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Custom software · AI · Cloud · IoT</span>
+        <h1>Next-gen software,<br>built <em>end to end</em>.</h1>
+        <p class="lead">Cloftware designs and ships custom software that connects your frontend, backend, database, IoT devices and cloud infrastructure into one AI-powered system — for teams across the US, UK, India, Germany and Canada.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">Start a project</a>
+          <a href="#portfolio" class="btn btn-ghost btn-lg">See our work</a>
+        </div>
+        <div class="region-strip">
+          <span class="label">Serving clients in</span>
+          <div class="region-chips">
+            <span class="region-chip">🇺🇸 USA</span>
+            <span class="region-chip">🇬🇧 UK</span>
+            <span class="region-chip">🇮🇳 India</span>
+            <span class="region-chip">🇩🇪 Germany</span>
+            <span class="region-chip">🇨🇦 Canada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-wrap reveal">
+        <div class="stack-title">
+          <span>system_architecture.yaml</span>
+          <span>live</span>
+        </div>
+        <div class="stack-layers">
+          <div class="stack-layer app">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+            </div>
+            <div class="txt">
+              <strong>Your Product</strong>
+              <span>Frontend + Backend + Database</span>
+            </div>
+          </div>
+          <div class="stack-connector"></div>
+          <div class="stack-layer ai">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+            </div>
+            <div class="txt">
+              <strong>AI Engine</strong>
+              <span>Automation, models & smart features</span>
+            </div>
+          </div>
+          <div class="stack-connector"></div>
+          <div class="stack-layer cloud">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a5 5 0 1 1 1.7-9.7A6 6 0 0 1 22 12.5a3.5 3.5 0 0 1-4.5 6.5Z"/></svg>
+            </div>
+            <div class="txt">
+              <strong>Cloud Infrastructure</strong>
+              <span>Scalable, monitored, secure</span>
+            </div>
+          </div>
+          <div class="stack-connector"></div>
+          <div class="stack-layer iot">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 0 1 0 20M12 6a6 6 0 0 1 0 12M12 10a2 2 0 0 1 0 4"/></svg>
+            </div>
+            <div class="txt">
+              <strong>IoT Devices</strong>
+              <span>Sensors, hardware & edge data</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <div class="trust-item"><span class="dot"></span>Full-stack delivery</div>
+      <div class="trust-item"><span class="dot"></span>AI-integrated builds</div>
+      <div class="trust-item"><span class="dot"></span>Cloud-native infra</div>
+      <div class="trust-item"><span class="dot"></span>IoT-ready systems</div>
+      <div class="trust-item"><span class="dot"></span>5 countries served</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we build</span>
+        <h2>One team, every layer of your software.</h2>
+        <p>From the first line of frontend code to the sensor sending data from the field — we design, build and run it as a single connected system.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon-box c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Custom Software</h3>
+          <p>Bespoke web and internal platforms built around how your business actually works — not a template.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-box c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
+          <h3>Frontend Development</h3>
+          <p>Fast, accessible interfaces users enjoy — built with modern frameworks and a strong design system.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-box c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <h3>Backend & Database</h3>
+          <p>Reliable APIs and data architecture that stay fast and consistent as your product scales.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-box c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+          <h3>AI Integration</h3>
+          <p>Practical AI features — assistants, matching, generation and automation — wired directly into your product.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-box c5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 0 1 0 20M12 6a6 6 0 0 1 0 12M12 10a2 2 0 0 1 0 4"/></svg></div>
+          <h3>IoT Solutions</h3>
+          <p>Connected devices and sensors streaming real-time data into dashboards and business logic.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-box c6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a5 5 0 1 1 1.7-9.7A6 6 0 0 1 22 12.5a3.5 3.5 0 0 1-4.5 6.5Z"/></svg></div>
+          <h3>Cloud Infrastructure</h3>
+          <p>Secure, monitored, auto-scaling infrastructure so your software stays up as demand grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="section" id="capabilities" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cap-strip reveal">
+        <div class="section-head">
+          <span class="eyebrow">Under the hood</span>
+          <h2>Tools we build with.</h2>
+          <p>A modern, pragmatic stack chosen per project — not one-size-fits-all.</p>
+        </div>
+        <div class="tag-grid">
+          <span class="tag">Vue.js</span>
+          <span class="tag">Nuxt.js</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">React</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Google Cloud</span>
+          <span class="tag">Docker</span>
+          <span class="tag">MQTT</span>
+          <span class="tag">Raspberry Pi</span>
+          <span class="tag">OpenAI / LLM APIs</span>
+          <span class="tag">REST & GraphQL</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2>Products we've shipped.</h2>
+        <p>A few of the platforms built and maintained by the Cloftware team.</p>
+      </div>
+      <div class="portfolio-grid">
+        <a href="https://worvio.com" target="_blank" rel="noopener" class="portfolio-card reveal">
+          <div class="portfolio-media pm-worvio"><span>Worvio</span></div>
+          <div class="portfolio-body">
+            <span class="tagline">Job platform · AI</span>
+            <h3>worvio.com</h3>
+            <p>An AI-powered job platform with smart job matching, a resume builder and a profile improver, built on Nuxt.js.</p>
+            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </div>
+        </a>
+        <a href="https://buldel.com" target="_blank" rel="noopener" class="portfolio-card reveal">
+          <div class="portfolio-media pm-buldel"><span>Buldel</span></div>
+          <div class="portfolio-body">
+            <span class="tagline">Core platform</span>
+            <h3>buldel.com</h3>
+            <p>A full-stack platform built and maintained end to end — frontend, backend, database and cloud infrastructure.</p>
+            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </div>
+        </a>
+        <a href="https://iot.buldel.com" target="_blank" rel="noopener" class="portfolio-card reveal">
+          <div class="portfolio-media pm-iot"><span>IoT</span></div>
+          <div class="portfolio-body">
+            <span class="tagline">IoT dashboard</span>
+            <h3>iot.buldel.com</h3>
+            <p>A connected-device dashboard streaming live sensor data, built on the same infrastructure as the core Buldel platform.</p>
+            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How we work</span>
+        <h2>From idea to running system.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="process-num">01</div>
+          <h4>Discover</h4>
+          <p>We map your workflow, users and goals before writing a single line of code.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">02</div>
+          <h4>Design</h4>
+          <p>Clean, user-friendly interfaces and a system architecture built to scale.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">03</div>
+          <h4>Build</h4>
+          <p>Frontend, backend, database, AI and IoT pieces developed and integrated together.</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-num">04</div>
+          <h4>Run</h4>
+          <p>Cloud deployment, monitoring and ongoing support after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The team</span>
+        <h2>A small team, built for full-stack delivery.</h2>
+        <p>Cloftware is a lean team covering every layer of your product, so nothing gets lost between departments.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar ta1">FS</div>
+          <h4>Full-Stack Lead</h4>
+          <span class="role">Frontend · Backend</span>
+          <p>Owns the architecture end to end — from UI to database schema.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar ta2">AI</div>
+          <h4>AI/ML Engineer</h4>
+          <span class="role">AI Integration</span>
+          <p>Builds the intelligent features that sit inside your product.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar ta3">IoT</div>
+          <h4>IoT Systems Engineer</h4>
+          <span class="role">Hardware · Edge</span>
+          <p>Connects devices and sensors to your cloud infrastructure.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar ta4">UX</div>
+          <h4>Product Designer</h4>
+          <span class="role">UI/UX</span>
+          <p>Shapes interfaces that are simple to use and easy to read.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="contact" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.85);">Let's build</span>
+        <h2>Tell us what you're building.</h2>
+        <p>Whether it's a web platform, an AI feature or a full IoT-to-cloud system — we'll scope it with you in one call.</p>
+        <div class="hero-actions">
+          <a href="mailto:hello@cloftware.com" class="btn btn-primary btn-lg">Email hello@cloftware.com</a>
+          <a href="#" class="btn btn-ghost btn-lg">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-mark" aria-hidden="true"></span>
+          Cloftware
+        </div>
+        <p>Next-gen custom software — frontend, backend, database, AI, IoT and cloud infrastructure, built as one system.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="https://worvio.com" target="_blank" rel="noopener">worvio.com</a></li>
+          <li><a href="https://buldel.com" target="_blank" rel="noopener">buldel.com</a></li>
+          <li><a href="https://iot.buldel.com" target="_blank" rel="noopener">iot.buldel.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@cloftware.com">hello@cloftware.com</a></li>
+          <li><a href="#contact">Start a project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Cloftware. All rights reserved.</p>
+      <div class="footer-regions">
+        <span>USA</span><span>·</span><span>UK</span><span>·</span><span>India</span><span>·</span><span>Germany</span><span>·</span><span>Canada</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>
