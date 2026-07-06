@@ -3,1166 +3,702 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloftware — Next-Gen Custom Software, AI, Cloud & IoT</title>
-<meta name="description" content="Cloftware builds next-generation custom software — full-stack web apps, AI integration, IoT systems and cloud infrastructure — for clients across USA, UK, India, Germany and Canada.">
+<title>Cloftware — Global Software &amp; Cloud Engineering</title>
+<meta name="description" content="Cloftware designs, builds, and runs web platforms, cloud infrastructure, and AI-powered products for teams across the US, UK, India, Germany, and Canada.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F7F8FC;
-    --surface:#FFFFFF;
-    --surface-2:#EEF1FA;
-    --ink:#12141C;
-    --ink-soft:#5A5F72;
-    --ink-faint:#9297AB;
-    --line:#E3E6F1;
-    --brand:#2E4CFF;
-    --brand-dark:#1B2FBD;
-    --brand-light:#EBEEFF;
-    --teal:#00BFA6;
-    --teal-light:#E3FBF6;
-    --amber:#FFB020;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'JetBrains Mono', monospace;
-    --radius:16px;
-    --radius-sm:10px;
-    --shadow-sm: 0 1px 2px rgba(18,20,28,0.04), 0 1px 1px rgba(18,20,28,0.03);
-    --shadow-md: 0 8px 24px rgba(18,20,28,0.08);
-    --shadow-lg: 0 24px 64px rgba(18,20,28,0.12);
-    --max: 1180px;
+    --bg:#fdfdfb;
+    --bg-soft:#f4f5ef;
+    --surface:#ffffff;
+    --surface-alt:#f0f1ea;
+    --ink:#14171c;
+    --ink-soft:#2b2f38;
+    --muted:#5b6070;
+    --muted-2:#9a9d8f;
+    --line:#e5e6de;
+    --line-strong:#d3d5c9;
+    --accent:#007cc3;
+    --accent-2:#0a9a6a;
+    --accent-soft:#e5f2fa;
+    --accent-2-soft:#e6f5ee;
+    --focus:0 0 0 3px rgba(0,124,195,0.3);
   }
-
-  *{box-sizing:border-box;}
+  *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
     background:var(--bg);
     color:var(--ink);
-    font-family:var(--font-body);
-    line-height:1.55;
+    font-family:'Montserrat',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
-  img,svg{display:block; max-width:100%;}
-  a{color:inherit; text-decoration:none;}
-  ul{list-style:none; margin:0; padding:0;}
-  button{font-family:inherit; cursor:pointer;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-  }
-
-  :focus-visible{
-    outline:2.5px solid var(--brand);
-    outline-offset:3px;
-    border-radius:4px;
-  }
-
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 24px;
-  }
-
+  ::selection{background:var(--accent);color:#fff;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:none;box-shadow:var(--focus);border-radius:4px;}
+  h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:-0.01em;color:var(--ink);}
+  em{font-style:normal;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--accent);}
   .eyebrow{
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--brand);
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-weight:500;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:20px;font-weight:500;
   }
-  .eyebrow::before{
-    content:"";
-    width:6px; height:6px;
-    background:var(--teal);
-    border-radius:50%;
-    display:inline-block;
-  }
-
-  h1,h2,h3,h4{
-    font-family:var(--font-display);
-    font-weight:600;
-    letter-spacing:-0.01em;
-    margin:0;
-    color:var(--ink);
-  }
-
-  .section{padding:96px 0;}
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
-  }
-  .section-head h2{
-    font-size:clamp(28px, 3.4vw, 42px);
-    margin-top:14px;
-    line-height:1.15;
-  }
-  .section-head p{
-    margin-top:16px;
-    color:var(--ink-soft);
-    font-size:17px;
-  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--accent);}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
   /* ---------- NAV ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(247,248,252,0.82);
-    backdrop-filter:blur(14px) saturate(160%);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:16px 24px;
-    max-width:var(--max);
-    margin:0 auto;
-  }
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:20px;
-    color:var(--ink);
-  }
-  .logo-mark{
-    width:34px; height:34px;
-    border-radius:9px;
-    background:linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
-    position:relative;
-    flex-shrink:0;
-  }
-  .logo-mark::before, .logo-mark::after{
-    content:"";
-    position:absolute;
-    border-radius:2px;
-    background:rgba(255,255,255,0.92);
-  }
-  .logo-mark::before{
-    width:14px; height:3px;
-    top:11px; left:10px;
-  }
-  .logo-mark::after{
-    width:8px; height:3px;
-    top:19px; left:10px;
-  }
-  .nav-links{
-    display:flex;
-    gap:36px;
-    align-items:center;
-  }
-  .nav-links a{
-    font-size:14.5px;
-    font-weight:500;
-    color:var(--ink-soft);
-    transition:color 0.2s ease;
-  }
-  .nav-links a:hover{color:var(--ink);}
-  .nav-cta{
-    display:flex;
-    align-items:center;
-    gap:16px;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    font-weight:600;
-    font-size:14.5px;
-    padding:11px 22px;
-    border-radius:100px;
-    border:1px solid transparent;
-    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--ink);
-    color:#fff;
-    box-shadow:var(--shadow-sm);
-  }
-  .btn-primary:hover{
-    background:var(--brand-dark);
-    transform:translateY(-1px);
-    box-shadow:var(--shadow-md);
-  }
-  .btn-ghost{
-    color:var(--ink);
-    border-color:var(--line);
-    background:var(--surface);
-  }
-  .btn-ghost:hover{
-    border-color:var(--brand);
-    color:var(--brand-dark);
-  }
-  .menu-toggle{
-    display:none;
-    background:none;
-    border:1px solid var(--line);
-    border-radius:10px;
-    width:40px; height:40px;
-    align-items:center;
-    justify-content:center;
-  }
-  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
-    content:"";
-    display:block;
-    width:18px; height:2px;
-    background:var(--ink);
-    position:relative;
-    transition:0.2s;
-  }
-  .menu-toggle span::before{position:absolute; top:-6px;}
-  .menu-toggle span::after{position:absolute; top:6px;}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,253,251,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  nav{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo img{height:40px;width:auto;display:block;image-rendering:-webkit-optimize-contrast;}
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:14.5px;color:var(--muted);font-weight:500;position:relative;transition:color .2s;}
+  .nav-links a:not(.nav-cta)::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+  .nav-links a:not(.nav-cta):hover::after,.nav-links a.active::after{transform:scaleX(1);}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+  .nav-cta{background:var(--ink);color:var(--bg)!important;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:transform .2s,opacity .2s;}
+  .nav-cta:hover{transform:translateY(-1px);opacity:.85;}
+  .burger{display:none;background:none;border:0;color:var(--ink);font-size:20px;cursor:pointer;width:38px;height:38px;align-items:center;justify-content:center;border-radius:8px;}
+  .burger:hover{background:var(--surface-alt);}
+  .mobile-menu{position:fixed;inset:0;top:68px;z-index:99;background:rgba(253,253,251,0.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;padding:36px 28px;gap:6px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;}
+  .mobile-menu.open{opacity:1;transform:translateY(0);pointer-events:auto;}
+  .mobile-menu a{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:600;padding:14px 4px;border-bottom:1px solid var(--line);color:var(--ink);}
+  .mobile-menu .btn{margin-top:20px;justify-content:center;}
 
   /* ---------- HERO ---------- */
-  .hero{
-    padding:76px 0 40px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:56px;
-    align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(36px, 5vw, 60px);
-    line-height:1.06;
-    margin-top:18px;
-    letter-spacing:-0.02em;
-  }
-  .hero h1 em{
-    font-style:normal;
-    background:linear-gradient(100deg, var(--brand) 0%, var(--teal) 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .hero p.lead{
-    margin-top:22px;
-    font-size:18px;
-    color:var(--ink-soft);
-    max-width:520px;
-  }
-  .hero-actions{
-    display:flex;
-    gap:14px;
-    margin-top:32px;
-    flex-wrap:wrap;
-  }
-  .btn-lg{
-    padding:14px 28px;
-    font-size:15.5px;
-  }
+  .hero{position:relative;padding:160px 0 70px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:50px;align-items:center;}
+  .hero h1{font-size:clamp(40px,5.6vw,68px);font-weight:600;line-height:1.05;margin-bottom:26px;}
+  .hero p{font-size:18.5px;color:var(--muted);max-width:520px;margin-bottom:36px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{padding:14px 26px;border-radius:9px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s,opacity .2s;border:1px solid transparent;cursor:pointer;font-family:'Montserrat',sans-serif;}
+  .btn-primary{background:var(--ink);color:var(--bg);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(20,23,28,0.35);}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink);background:var(--surface);}
+  .btn-ghost:hover{border-color:var(--muted);background:var(--surface-alt);}
 
-  .region-strip{
-    margin-top:44px;
-    display:flex;
-    align-items:center;
-    gap:18px;
-    flex-wrap:wrap;
-  }
-  .region-strip .label{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--ink-faint);
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-  }
-  .region-chips{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .region-chip{
-    font-size:13px;
-    font-weight:600;
-    padding:6px 13px;
-    border-radius:100px;
-    background:var(--surface);
-    border:1px solid var(--line);
-    color:var(--ink-soft);
-  }
-
-  /* Signature stack diagram */
-  .stack-wrap{
-    position:relative;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:24px;
-    padding:32px 28px 28px;
-    box-shadow:var(--shadow-lg);
-  }
-  .stack-wrap .stack-title{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--ink-faint);
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    margin-bottom:18px;
-    display:flex;
-    justify-content:space-between;
-  }
-  .stack-layers{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-  }
+  .stack-art{position:relative;height:420px;display:flex;align-items:center;justify-content:center;}
   .stack-layer{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    padding:16px 16px;
-    border-radius:14px;
-    position:relative;
-    z-index:2;
+    position:absolute;left:50%;border-radius:16px;border:1.5px solid var(--line-strong);
+    display:flex;align-items:center;padding:0 26px;gap:12px;background:var(--surface);
+    box-shadow:0 18px 40px -22px rgba(20,23,28,0.18);
+    animation:bob 6s ease-in-out infinite;
   }
-  .stack-layer .icon{
-    width:38px; height:38px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-  }
-  .stack-layer .icon svg{width:19px; height:19px;}
-  .stack-layer .txt strong{
-    display:block;
-    font-size:14.5px;
-    font-weight:600;
-    color:var(--ink);
-  }
-  .stack-layer .txt span{
-    font-size:12.5px;
-    color:var(--ink-faint);
-  }
-  .stack-layer.iot .icon{background:#FFF3E0; color:#DE8A00;}
-  .stack-layer.cloud .icon{background:var(--teal-light); color:#00947F;}
-  .stack-layer.ai .icon{background:var(--brand-light); color:var(--brand-dark);}
-  .stack-layer.app .icon{background:#12141C; color:#fff;}
-  .stack-layer.app{background:var(--surface-2);}
+  .stack-layer .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .stack-layer span{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);white-space:nowrap;}
+  .layer-1{width:300px;height:64px;top:20px;transform:translateX(-70%);background:var(--accent-soft);border-color:#bfe0f2;animation-delay:0s;}
+  .layer-2{width:340px;height:64px;top:130px;transform:translateX(-52%);animation-delay:.6s;}
+  .layer-3{width:300px;height:64px;top:240px;transform:translateX(-68%);background:var(--accent-2-soft);border-color:#bfe7d5;animation-delay:1.2s;}
+  .layer-4{width:260px;height:64px;top:340px;transform:translateX(-40%);animation-delay:1.8s;}
+  @keyframes bob{0%,100%{margin-top:0;}50%{margin-top:-10px;}}
+  @media (prefers-reduced-motion:reduce){.stack-layer{animation:none;}}
 
-  .stack-connector{
-    width:2px;
-    height:26px;
-    margin-left:35px;
-    position:relative;
-    background:var(--line);
-    overflow:hidden;
-  }
-  .stack-connector::after{
-    content:"";
-    position:absolute;
-    left:-2px;
-    width:6px; height:6px;
-    border-radius:50%;
-    background:var(--brand);
-    top:-10px;
-    animation:flowDot 2.2s linear infinite;
-  }
-  .stack-connector:nth-of-type(2)::after{animation-delay:0s; background:var(--amber);}
-  .stack-connector:nth-of-type(4)::after{animation-delay:0.7s; background:var(--teal);}
-  .stack-connector:nth-of-type(6)::after{animation-delay:1.4s; background:var(--brand);}
-  @keyframes flowDot{
-    0%{top:-10px; opacity:0;}
-    15%{opacity:1;}
-    85%{opacity:1;}
-    100%{top:30px; opacity:0;}
-  }
+  /* ---------- MARQUEE ---------- */
+  .marquee-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);padding:20px 0;overflow:hidden;white-space:nowrap;}
+  .marquee-track{display:inline-flex;gap:48px;animation:scroll 26s linear infinite;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .marquee-item{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:10px;letter-spacing:.02em;}
+  .marquee-item .flag{font-size:15px;}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none;}}
 
-  /* ---------- LOGO / TRUST STRIP ---------- */
-  .trust-strip{
-    padding:36px 0;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .trust-strip .wrap{
-    display:flex;
-    align-items:center;
-    gap:36px;
-    flex-wrap:wrap;
-    justify-content:space-between;
-  }
-  .trust-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--ink-faint);
-    font-size:13.5px;
-    font-weight:600;
-    font-family:var(--font-mono);
-  }
-  .trust-item .dot{width:6px; height:6px; border-radius:50%; background:var(--teal);}
+  /* ---------- STATS ---------- */
+  .stats{padding:56px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .stat-num{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:700;color:var(--ink);}
+  .stat-num em{font-style:normal;color:var(--accent);}
+  .stat-label{font-size:13.5px;color:var(--muted);margin-top:6px;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:100px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head.center .eyebrow{justify-content:center;}
+  .section-head h2{font-size:clamp(28px,3.4vw,42px);font-weight:600;margin-bottom:16px;}
+  .section-head p{color:var(--muted);font-size:16.5px;}
+  .alt-bg{background:var(--bg-soft);}
 
   /* ---------- SERVICES ---------- */
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-  }
-  .service-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:28px 26px;
-    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  }
-  .service-card:hover{
-    transform:translateY(-4px);
-    box-shadow:var(--shadow-md);
-    border-color:transparent;
-  }
-  .service-card .icon-box{
-    width:46px; height:46px;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:20px;
-  }
-  .service-card .icon-box svg{width:22px; height:22px;}
-  .service-card h3{
-    font-size:18px;
-    margin-bottom:8px;
-  }
-  .service-card p{
-    font-size:14.5px;
-    color:var(--ink-soft);
-    margin:0;
-  }
-  .c1{background:var(--brand-light); color:var(--brand-dark);}
-  .c2{background:var(--teal-light); color:#00947F;}
-  .c3{background:#FFF3E0; color:#DE8A00;}
-  .c4{background:#FDEBEE; color:#D6336C;}
-  .c5{background:#EAF6FF; color:#0B7CC9;}
-  .c6{background:#F0EEFF; color:#6C4EE0;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;}
+  .service-card{background:var(--surface);padding:38px 32px;transition:background .25s;}
+  .service-card:hover{background:var(--bg-soft);}
+  .service-icon{width:46px;height:46px;border-radius:11px;background:var(--accent-soft);border:1px solid #bfe0f2;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--accent);transition:transform .25s;}
+  .service-card:hover .service-icon{transform:translateY(-3px);}
+  .service-icon svg{width:21px;height:21px;}
+  .service-card h3{font-size:19px;font-weight:600;margin-bottom:10px;}
+  .service-card p{color:var(--muted);font-size:14.5px;}
 
-  /* ---------- CAPABILITIES ---------- */
-  .cap-strip{
-    background:var(--ink);
-    border-radius:24px;
-    padding:48px 40px;
-    color:#fff;
-  }
-  .cap-strip .section-head{
-    max-width:560px;
-    margin-bottom:34px;
-  }
-  .cap-strip .section-head h2{color:#fff;}
-  .cap-strip .eyebrow{color:var(--teal);}
-  .cap-strip .section-head p{color:rgba(255,255,255,0.66);}
-  .tag-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  .tag{
-    font-family:var(--font-mono);
-    font-size:13px;
-    padding:8px 16px;
-    border-radius:100px;
-    background:rgba(255,255,255,0.07);
-    border:1px solid rgba(255,255,255,0.14);
-    color:rgba(255,255,255,0.88);
-  }
+  /* ---------- TECH STACK ---------- */
+  .tech-grid{display:flex;flex-wrap:wrap;gap:12px;}
+  .tech-pill{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line-strong);padding:11px 20px;border-radius:999px;transition:border-color .2s,transform .2s;}
+  .tech-pill:hover{border-color:var(--accent);transform:translateY(-2px);}
 
-  /* ---------- PORTFOLIO ---------- */
-  .portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:22px;
-  }
-  .portfolio-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:20px;
-    overflow:hidden;
-    transition:transform 0.22s ease, box-shadow 0.22s ease;
-    display:flex;
-    flex-direction:column;
-  }
-  .portfolio-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow-lg);
-  }
-  .portfolio-media{
-    height:150px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .portfolio-media span{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:26px;
-    color:rgba(255,255,255,0.95);
-    z-index:2;
-    letter-spacing:-0.01em;
-  }
-  .portfolio-media::before{
-    content:"";
-    position:absolute; inset:0;
-    opacity:0.9;
-  }
-  .pm-worvio::before{background:linear-gradient(135deg,#2E4CFF,#7A8FFF);}
-  .pm-buldel::before{background:linear-gradient(135deg,#00BFA6,#7FE8D8);}
-  .pm-iot::before{background:linear-gradient(135deg,#DE8A00,#FFC15E);}
-  .portfolio-body{
-    padding:22px 22px 24px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    flex:1;
-  }
-  .portfolio-body .tagline{
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ink-faint);
-  }
-  .portfolio-body h3{font-size:18px;}
-  .portfolio-body p{
-    font-size:14px;
-    color:var(--ink-soft);
-    margin:0;
-    flex:1;
-  }
-  .portfolio-link{
-    margin-top:6px;
-    font-size:13.5px;
-    font-weight:600;
-    color:var(--brand-dark);
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-  }
-  .portfolio-link svg{width:14px; height:14px; transition:transform 0.18s ease;}
-  .portfolio-card:hover .portfolio-link svg{transform:translate(2px,-2px);}
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border-radius:18px;overflow:hidden;border:1px solid var(--line);}
+  .why-item{background:var(--surface);padding:32px 34px;display:flex;gap:18px;align-items:flex-start;}
+  .why-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);padding-top:3px;}
+  .why-item h4{font-size:17px;font-weight:600;margin-bottom:6px;}
+  .why-item p{color:var(--muted);font-size:14px;}
 
-  /* ---------- PROCESS ---------- */
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:0;
-    counter-reset:step;
-  }
-  .process-step{
-    padding:0 20px 0 0;
-    position:relative;
-  }
-  .process-step:not(:last-child)::after{
-    content:"";
-    position:absolute;
-    top:19px; right:0;
-    width:20px; height:1px;
-    background:var(--line);
-    display:none;
-  }
-  .process-num{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--brand);
-    font-weight:600;
-    margin-bottom:14px;
-  }
-  .process-step h4{font-size:16px; margin-bottom:8px;}
-  .process-step p{font-size:14px; color:var(--ink-soft); margin:0;}
+  /* ---------- PROCESS TIMELINE ---------- */
+  .timeline{position:relative;padding-left:36px;}
+  .timeline::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:1.5px;background:var(--line-strong);}
+  .tl-item{position:relative;padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:-36px;top:2px;width:19px;height:19px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;}
+  .tl-dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .tl-item h4{font-size:21px;font-weight:600;margin-bottom:8px;}
+  .tl-item p{color:var(--muted);font-size:15px;max-width:520px;}
+  .tl-tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:block;}
+
+  /* ---------- CASE STUDY ---------- */
+  .case-card{background:var(--ink);color:var(--bg);border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .case-card .eyebrow{color:#7cc9ee;}
+  .case-card .eyebrow::before{background:#7cc9ee;}
+  .case-card h3{color:#fff;font-size:clamp(24px,3vw,32px);margin-bottom:16px;}
+  .case-card p{color:#b9bdc9;font-size:15.5px;margin-bottom:26px;}
+  .case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .case-metric-num{font-family:'Montserrat',sans-serif;font-weight:700;font-size:28px;color:#7cc9ee;}
+  .case-metric-label{font-size:12px;color:#9298a8;margin-top:4px;}
+  .case-features{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .case-features li{font-size:14.5px;color:#d7d9e0;padding-left:24px;position:relative;}
+  .case-features li::before{content:'';position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:3px;background:rgba(124,201,238,0.2);border:1px solid #7cc9ee;}
+  .case-link{display:inline-flex;margin-top:24px;color:#7cc9ee;font-weight:600;font-size:14.5px;align-items:center;gap:6px;}
+
+  /* ---------- WORK ---------- */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .work-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;}
+  .work-card:hover{transform:translateY(-4px);border-color:var(--muted-2);}
+  .work-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:27px;color:#fff;}
+  .thumb-1{background:linear-gradient(135deg,#003a5c,#007cc3);}
+  .thumb-2{background:linear-gradient(135deg,#0a3d2e,#0a9a6a);}
+  .thumb-3{background:linear-gradient(135deg,#3d2f0a,#c98a1c);}
+  .work-body{padding:26px 26px 28px;flex:1;display:flex;flex-direction:column;}
+  .work-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+  .work-card h3{font-size:19px;font-weight:600;margin-bottom:10px;}
+  .work-card p{color:var(--muted);font-size:14.5px;flex:1;}
+  .work-link{margin-top:18px;font-size:14px;font-weight:600;color:var(--accent);display:inline-flex;align-items:center;gap:6px;}
+  .work-link:hover{gap:9px;transition:gap .2s;}
+
+  /* ---------- ENGAGEMENT ---------- */
+  .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .plan-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;transition:border-color .25s,transform .25s;position:relative;}
+  .plan-card:hover{transform:translateY(-4px);border-color:var(--muted-2);}
+  .plan-card.featured{border-color:var(--accent);background:linear-gradient(180deg,var(--accent-soft),var(--surface) 45%);}
+  .plan-badge{position:absolute;top:-13px;left:30px;background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;}
+  .plan-card h3{font-size:20px;font-weight:600;margin-bottom:8px;}
+  .plan-card .plan-for{color:var(--muted-2);font-size:13.5px;margin-bottom:22px;}
+  .plan-list{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;}
+  .plan-list li{font-size:14px;color:var(--muted);padding-left:22px;position:relative;}
+  .plan-list li::before{content:'';position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:3px;background:var(--accent-soft);border:1px solid var(--accent);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{list-style:none;cursor:pointer;padding:24px 4px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Montserrat',sans-serif;font-size:18px;font-weight:600;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-plus{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line-strong);flex-shrink:0;position:relative;transition:transform .25s,border-color .25s;}
+  .faq-plus::before,.faq-plus::after{content:'';position:absolute;background:var(--ink);left:50%;top:50%;transform:translate(-50%,-50%);}
+  .faq-plus::before{width:10px;height:1.5px;}
+  .faq-plus::after{width:1.5px;height:10px;transition:opacity .2s;}
+  details[open] .faq-plus{transform:rotate(45deg);border-color:var(--accent);}
+  .faq-item p{color:var(--muted);font-size:15px;padding:0 4px 26px;max-width:640px;}
 
   /* ---------- TEAM ---------- */
-  .team-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:20px;
-  }
-  .team-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:24px 20px;
-    text-align:left;
-  }
-  .team-avatar{
-    width:52px; height:52px;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:16px;
-    color:#fff;
-    margin-bottom:16px;
-  }
-  .ta1{background:linear-gradient(135deg,#2E4CFF,#5F76FF);}
-  .ta2{background:linear-gradient(135deg,#00BFA6,#3FDFC7);}
-  .ta3{background:linear-gradient(135deg,#DE8A00,#FFB94D);}
-  .ta4{background:linear-gradient(135deg,#6C4EE0,#9A85F2);}
-  .team-card h4{font-size:15.5px; margin-bottom:4px;}
-  .team-card .role{
-    font-size:13px;
-    color:var(--brand-dark);
-    font-weight:600;
-    margin-bottom:10px;
-    display:block;
-  }
-  .team-card p{
-    font-size:13.5px;
-    color:var(--ink-soft);
-    margin:0;
-  }
+  .team-wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
+  .team-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;gap:22px;align-items:center;flex:1;min-width:320px;}
+  .avatar{width:64px;height:64px;border-radius:14px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:var(--bg);flex-shrink:0;}
+  .team-card h4{font-size:19px;font-weight:600;margin-bottom:4px;}
+  .team-card .role{color:var(--accent);font-size:13.5px;font-family:'IBM Plex Mono',monospace;margin-bottom:8px;}
+  .team-card p{color:var(--muted);font-size:14px;}
 
   /* ---------- CONTACT / CTA ---------- */
-  .cta-band{
-    background:linear-gradient(120deg, var(--brand) 0%, #1B2FBD 100%);
-    border-radius:28px;
-    padding:64px 48px;
-    color:#fff;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .cta-band::before{
-    content:"";
-    position:absolute;
-    width:420px; height:420px;
-    background:radial-gradient(circle, rgba(0,191,166,0.35), transparent 70%);
-    top:-160px; right:-120px;
-  }
-  .cta-band h2{
-    color:#fff;
-    font-size:clamp(26px, 3.6vw, 40px);
-    position:relative;
-    z-index:1;
-  }
-  .cta-band p{
-    color:rgba(255,255,255,0.82);
-    max-width:520px;
-    margin:16px auto 0;
-    font-size:16px;
-    position:relative;
-    z-index:1;
-  }
-  .cta-band .hero-actions{
-    justify-content:center;
-    position:relative;
-    z-index:1;
-  }
-  .cta-band .btn-primary{background:#fff; color:var(--brand-dark);}
-  .cta-band .btn-primary:hover{background:var(--amber); color:var(--ink);}
-  .cta-band .btn-ghost{
-    background:transparent;
-    border-color:rgba(255,255,255,0.4);
-    color:#fff;
-  }
-  .cta-band .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,0.1);}
+  .cta-section{background:var(--ink);border-radius:26px;padding:70px 64px;text-align:center;position:relative;overflow:hidden;}
+  .cta-section::before{content:'';position:absolute;inset:-2px;background:radial-gradient(700px circle at 50% 0%,rgba(124,201,238,0.15),transparent 60%);pointer-events:none;}
+  .cta-section .eyebrow{justify-content:center;color:#7cc9ee;}
+  .cta-section .eyebrow::before{background:#7cc9ee;}
+  .cta-section h2{color:#fff;font-size:clamp(28px,3.8vw,42px);margin-bottom:16px;}
+  .cta-section p{color:#b9bdc9;margin-bottom:34px;font-size:16.5px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .cta-section .btn-primary{background:#fff;color:var(--ink);}
+  .cta-section .btn-ghost{border-color:#3a3f4a;color:#fff;background:transparent;}
+  .cta-section .btn-ghost:hover{background:#1f232c;}
+  .country-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px;}
+  .country-pill{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#b9bdc9;border:1px solid #3a3f4a;padding:6px 14px;border-radius:999px;}
 
   /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding:56px 0 32px;
-  }
-  .footer-top{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1fr;
-    gap:32px;
-    padding-bottom:40px;
-  }
-  .footer-brand p{
-    color:var(--ink-soft);
-    font-size:14px;
-    margin-top:14px;
-    max-width:280px;
-  }
-  .footer-col h5{
-    font-family:var(--font-mono);
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ink-faint);
-    margin-bottom:16px;
-  }
-  .footer-col ul{
-    display:flex;
-    flex-direction:column;
-    gap:11px;
-  }
-  .footer-col a{
-    font-size:14px;
-    color:var(--ink-soft);
-    transition:color 0.18s;
-  }
-  .footer-col a:hover{color:var(--brand-dark);}
-  .footer-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-top:26px;
-    border-top:1px solid var(--line);
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  .footer-bottom p{
-    font-size:13px;
-    color:var(--ink-faint);
-    margin:0;
-  }
-  .footer-regions{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-  }
-  .footer-regions span{
-    font-size:12px;
-    font-family:var(--font-mono);
-    color:var(--ink-faint);
-  }
-
-  /* reveal on scroll */
-  .reveal{
-    opacity:0;
-    transform:translateY(16px);
-    transition:opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.in{
-    opacity:1;
-    transform:translateY(0);
-  }
+  footer{border-top:1px solid var(--line);padding:56px 0 34px;}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:44px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+  .footer-brand p{color:var(--muted);font-size:14px;margin-top:14px;max-width:260px;}
+  .footer-brand .logo img{height:34px;}
+  .footer-col h5{font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-2);margin-bottom:16px;}
+  .footer-col a{display:block;color:var(--muted);font-size:14.5px;margin-bottom:12px;}
+  .footer-col a:hover{color:var(--ink);}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  footer .fine{color:var(--muted-2);font-size:13px;}
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width:980px){
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
     .hero-grid{grid-template-columns:1fr;}
-    .services-grid{grid-template-columns:repeat(2,1fr);}
-    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
-    .process-grid{grid-template-columns:repeat(2,1fr); row-gap:32px;}
-    .team-grid{grid-template-columns:repeat(2,1fr);}
-    .footer-top{grid-template-columns:1fr 1fr;}
-  }
-
-  @media (max-width:720px){
-    .nav-links{
-      position:fixed;
-      top:68px; left:0; right:0;
-      background:var(--surface);
-      flex-direction:column;
-      align-items:flex-start;
-      padding:20px 24px;
-      gap:18px;
-      border-bottom:1px solid var(--line);
-      box-shadow:var(--shadow-md);
-      transform:translateY(-140%);
-      transition:transform 0.25s ease;
-      z-index:99;
-    }
-    .nav-links.open{transform:translateY(0);}
-    .menu-toggle{display:flex;}
-    .nav-cta .btn-ghost{display:none;}
-    .section{padding:64px 0;}
+    .stack-art{height:280px;order:-1;transform:scale(0.85);}
+    .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:26px;}
     .services-grid{grid-template-columns:1fr;}
-    .portfolio-grid{grid-template-columns:1fr;}
-    .process-grid{grid-template-columns:1fr;}
-    .team-grid{grid-template-columns:1fr 1fr;}
-    .footer-top{grid-template-columns:1fr;}
-    .cap-strip{padding:36px 22px;}
-    .cta-band{padding:48px 24px;}
-    .region-strip{flex-direction:column; align-items:flex-start;}
-  }
-
-  @media (max-width:420px){
-    .team-grid{grid-template-columns:1fr;}
-    .wrap{padding:0 18px;}
+    .why-grid{grid-template-columns:1fr;}
+    .plans-grid{grid-template-columns:1fr;}
+    .work-grid{grid-template-columns:1fr;}
+    .case-card{grid-template-columns:1fr;padding:36px 28px;}
+    .case-metrics{grid-template-columns:repeat(3,1fr);}
+    .footer-top{grid-template-columns:1fr 1fr;}
+    .cta-section{padding:48px 26px;}
+    section{padding:72px 0;}
+    .logo img{height:34px;}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <nav class="nav">
-    <a href="#top" class="logo">
-      <span class="logo-mark" aria-hidden="true"></span>
-      Cloftware
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="#contact" class="btn btn-ghost">Get a quote</a>
-      <a href="#contact" class="btn btn-primary">Start a project</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  <nav>
+    <a href="#" class="logo"><img src="logo/logo.svg" alt="Cloftware" width="600" height="600"></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#team">Team</a>
+      <a href="#contact" class="nav-cta">Start a project</a>
     </div>
+    <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">☰</button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#faq">FAQ</a>
+    <a href="#team">Team</a>
+    <a href="#contact" class="btn btn-primary">Start a project →</a>
+  </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
+<main>
   <section class="hero">
     <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Custom software · AI · Cloud · IoT</span>
-        <h1>Next-gen software,<br>built <em>end to end</em>.</h1>
-        <p class="lead">Cloftware designs and ships custom software that connects your frontend, backend, database, IoT devices and cloud infrastructure into one AI-powered system — for teams across the US, UK, India, Germany and Canada.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary btn-lg">Start a project</a>
-          <a href="#portfolio" class="btn btn-ghost btn-lg">See our work</a>
-        </div>
-        <div class="region-strip">
-          <span class="label">Serving clients in</span>
-          <div class="region-chips">
-            <span class="region-chip">🇺🇸 USA</span>
-            <span class="region-chip">🇬🇧 UK</span>
-            <span class="region-chip">🇮🇳 India</span>
-            <span class="region-chip">🇩🇪 Germany</span>
-            <span class="region-chip">🇨🇦 Canada</span>
-          </div>
+      <div class="reveal in">
+        <div class="eyebrow">Global IT Services</div>
+        <h1>Software for teams that <em>don't stop</em> at one border.</h1>
+        <p>Cloftware designs, builds, and runs web platforms, cloud infrastructure, and AI-powered products for teams across the US, UK, India, Germany, and Canada.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Start a project →</a>
+          <a href="#work" class="btn btn-ghost">See our work</a>
         </div>
       </div>
-
-      <div class="stack-wrap reveal">
-        <div class="stack-title">
-          <span>system_architecture.yaml</span>
-          <span>live</span>
-        </div>
-        <div class="stack-layers">
-          <div class="stack-layer app">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
-            </div>
-            <div class="txt">
-              <strong>Your Product</strong>
-              <span>Frontend + Backend + Database</span>
-            </div>
-          </div>
-          <div class="stack-connector"></div>
-          <div class="stack-layer ai">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
-            </div>
-            <div class="txt">
-              <strong>AI Engine</strong>
-              <span>Automation, models & smart features</span>
-            </div>
-          </div>
-          <div class="stack-connector"></div>
-          <div class="stack-layer cloud">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a5 5 0 1 1 1.7-9.7A6 6 0 0 1 22 12.5a3.5 3.5 0 0 1-4.5 6.5Z"/></svg>
-            </div>
-            <div class="txt">
-              <strong>Cloud Infrastructure</strong>
-              <span>Scalable, monitored, secure</span>
-            </div>
-          </div>
-          <div class="stack-connector"></div>
-          <div class="stack-layer iot">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 0 1 0 20M12 6a6 6 0 0 1 0 12M12 10a2 2 0 0 1 0 4"/></svg>
-            </div>
-            <div class="txt">
-              <strong>IoT Devices</strong>
-              <span>Sensors, hardware & edge data</span>
-            </div>
-          </div>
-        </div>
+      <div class="stack-art" aria-hidden="true">
+        <div class="stack-layer layer-1"><div class="dot" style="background:#007cc3"></div><span>ui.layer — react / nuxt</span></div>
+        <div class="stack-layer layer-2"><div class="dot" style="background:#c98a1c"></div><span>api.layer — laravel / node</span></div>
+        <div class="stack-layer layer-3"><div class="dot" style="background:#0a9a6a"></div><span>data.layer — mysql / supabase</span></div>
+        <div class="stack-layer layer-4"><div class="dot" style="background:#5b6070"></div><span>cloud.layer — aws / docker</span></div>
       </div>
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <div class="trust-strip">
-    <div class="wrap">
-      <div class="trust-item"><span class="dot"></span>Full-stack delivery</div>
-      <div class="trust-item"><span class="dot"></span>AI-integrated builds</div>
-      <div class="trust-item"><span class="dot"></span>Cloud-native infra</div>
-      <div class="trust-item"><span class="dot"></span>IoT-ready systems</div>
-      <div class="trust-item"><span class="dot"></span>5 countries served</div>
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="flag">🇺🇸</span> United States</span>
+      <span class="marquee-item"><span class="flag">🇬🇧</span> United Kingdom</span>
+      <span class="marquee-item"><span class="flag">🇮🇳</span> India</span>
+      <span class="marquee-item"><span class="flag">🇩🇪</span> Germany</span>
+      <span class="marquee-item"><span class="flag">🇨🇦</span> Canada</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Full-stack Development</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Cloud &amp; DevOps</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">AI Integration</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">IoT Engineering</span>
+      <span class="marquee-item">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item"><span class="flag">🇺🇸</span> United States</span>
+      <span class="marquee-item"><span class="flag">🇬🇧</span> United Kingdom</span>
+      <span class="marquee-item"><span class="flag">🇮🇳</span> India</span>
+      <span class="marquee-item"><span class="flag">🇩🇪</span> Germany</span>
+      <span class="marquee-item"><span class="flag">🇨🇦</span> Canada</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Full-stack Development</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">Cloud &amp; DevOps</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">AI Integration</span>
+      <span class="marquee-item">·</span>
+      <span class="marquee-item">IoT Engineering</span>
+      <span class="marquee-item">·</span>
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div class="reveal"><div class="stat-num"><em>9+</em> yrs</div><div class="stat-label">Engineering experience</div></div>
+      <div class="reveal"><div class="stat-num"><em>5</em></div><div class="stat-label">Countries served</div></div>
+      <div class="reveal"><div class="stat-num"><em>360°</em></div><div class="stat-label">Frontend to infra, in-house</div></div>
+      <div class="reveal"><div class="stat-num"><em>1</em> team</div><div class="stat-label">Not outsourced twice over</div></div>
+    </div>
+  </div>
+
+  <section id="services" class="alt-bg">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">What we build</span>
-        <h2>One team, every layer of your software.</h2>
-        <p>From the first line of frontend code to the sensor sending data from the field — we design, build and run it as a single connected system.</p>
+        <div class="eyebrow">What we do</div>
+        <h2>Every layer of your product, one accountable team.</h2>
+        <p>From the first line of code to the server it runs on, Cloftware covers the full stack — so nothing gets lost between vendors.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="icon-box c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h3>Custom Software</h3>
-          <p>Bespoke web and internal platforms built around how your business actually works — not a template.</p>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8M12 18v3"/></svg></div>
+          <h3>Web &amp; App Development</h3>
+          <p>Fast, responsive products built on Laravel, Vue, Nuxt, and React — engineered to launch quickly and scale without rewrites.</p>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-box c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17V7a2 2 0 0 1 2-2h6l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></svg></div>
-          <h3>Frontend Development</h3>
-          <p>Fast, accessible interfaces users enjoy — built with modern frameworks and a strong design system.</p>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 01-1-7.87A5.5 5.5 0 0116.9 8.5 4.5 4.5 0 0117.5 18H7z"/></svg></div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Infrastructure, CI/CD, and hosting set up right the first time — on AWS, GCP, or your existing stack.</p>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-box c3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
-          <h3>Backend & Database</h3>
-          <p>Reliable APIs and data architecture that stay fast and consistent as your product scales.</p>
-        </div>
-        <div class="service-card reveal">
-          <div class="icon-box c4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4L12 3z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8L19 15z"/></svg></div>
           <h3>AI Integration</h3>
-          <p>Practical AI features — assistants, matching, generation and automation — wired directly into your product.</p>
+          <p>Practical AI: smart search, automated workflows, and LLM-powered features that solve real problems, not demos.</p>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-box c5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 0 1 0 20M12 6a6 6 0 0 1 0 12M12 10a2 2 0 0 1 0 4"/></svg></div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5V12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5.5M5 12v6.5c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V12"/></svg></div>
+          <h3>Database Architecture</h3>
+          <p>Schemas and data models designed for the scale you're headed toward, not just the traffic you have today.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="2.4"/><circle cx="4" cy="6" r="1.6"/><circle cx="20" cy="6" r="1.6"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="18" r="1.6"/><path d="M10 10.5L5.3 7M14 10.5L18.7 7M10 13.5L5.3 17M14 13.5L18.7 17"/></svg></div>
           <h3>IoT Solutions</h3>
-          <p>Connected devices and sensors streaming real-time data into dashboards and business logic.</p>
+          <p>Connected devices, real-time dashboards, and the pipelines that tie hardware to software reliably.</p>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-box c6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a5 5 0 1 1 1.7-9.7A6 6 0 0 1 22 12.5a3.5 3.5 0 0 1-4.5 6.5Z"/></svg></div>
-          <h3>Cloud Infrastructure</h3>
-          <p>Secure, monitored, auto-scaling infrastructure so your software stays up as demand grows.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAPABILITIES -->
-  <section class="section" id="capabilities" style="padding-top:0;">
-    <div class="wrap">
-      <div class="cap-strip reveal">
-        <div class="section-head">
-          <span class="eyebrow">Under the hood</span>
-          <h2>Tools we build with.</h2>
-          <p>A modern, pragmatic stack chosen per project — not one-size-fits-all.</p>
-        </div>
-        <div class="tag-grid">
-          <span class="tag">Vue.js</span>
-          <span class="tag">Nuxt.js</span>
-          <span class="tag">Laravel</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">React</span>
-          <span class="tag">Supabase</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Google Cloud</span>
-          <span class="tag">Docker</span>
-          <span class="tag">MQTT</span>
-          <span class="tag">Raspberry Pi</span>
-          <span class="tag">OpenAI / LLM APIs</span>
-          <span class="tag">REST & GraphQL</span>
-          <span class="tag">Tailwind CSS</span>
+        <div class="service-card">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l4.5-1.2a1 1 0 00.5-.27L18 9.5a1.7 1.7 0 000-2.4l-1.1-1.1a1.7 1.7 0 00-2.4 0L5.5 15a1 1 0 00-.27.5L4 20z"/></svg></div>
+          <h3>Custom Software</h3>
+          <p>Internal tools and bespoke platforms shaped around how your team actually works, not a generic template.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section class="section" id="portfolio">
+  <section>
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Selected work</span>
-        <h2>Products we've shipped.</h2>
-        <p>A few of the platforms built and maintained by the Cloftware team.</p>
+        <div class="eyebrow">Tools we build with</div>
+        <h2>A modern stack, chosen for the job, not the résumé.</h2>
       </div>
-      <div class="portfolio-grid">
-        <a href="https://worvio.com" target="_blank" rel="noopener" class="portfolio-card reveal">
-          <div class="portfolio-media pm-worvio"><span>Worvio</span></div>
-          <div class="portfolio-body">
-            <span class="tagline">Job platform · AI</span>
+      <div class="tech-grid reveal">
+        <span class="tech-pill">Laravel</span>
+        <span class="tech-pill">Vue.js</span>
+        <span class="tech-pill">Nuxt.js</span>
+        <span class="tech-pill">React</span>
+        <span class="tech-pill">Node.js</span>
+        <span class="tech-pill">Tailwind CSS</span>
+        <span class="tech-pill">MySQL</span>
+        <span class="tech-pill">PostgreSQL</span>
+        <span class="tech-pill">Supabase</span>
+        <span class="tech-pill">AWS</span>
+        <span class="tech-pill">Docker</span>
+        <span class="tech-pill">Redis</span>
+        <span class="tech-pill">REST &amp; GraphQL APIs</span>
+        <span class="tech-pill">OpenAI / LLM APIs</span>
+        <span class="tech-pill">MQTT / IoT Protocols</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Why Cloftware</div>
+        <h2>Built to feel like an in-house team.</h2>
+        <p>Most agencies hand you off to whoever's free. We don't scale that way, on purpose.</p>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-item"><div class="why-num">→</div><div><h4>Direct access to engineers</h4><p>You talk to the person writing the code, not a project manager relaying messages.</p></div></div>
+        <div class="why-item"><div class="why-num">→</div><div><h4>Full-stack under one roof</h4><p>Frontend, backend, database, cloud, and AI — no coordinating three separate vendors.</p></div></div>
+        <div class="why-item"><div class="why-num">→</div><div><h4>Time-zone friendly</h4><p>Working hours that overlap with US, UK, and European teams — not just IST.</p></div></div>
+        <div class="why-item"><div class="why-num">→</div><div><h4>We maintain what we ship</h4><p>Products we've built stay live and supported — see it for yourself in our work below.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How we work</div>
+        <h2>A straight line from idea to launch.</h2>
+        <p>Five stages, no handoffs to strangers along the way.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item"><div class="tl-dot"></div><span class="tl-tag">Stage 01</span><h4>Discover</h4><p>We learn your business, your users, and what "done" actually looks like before writing a spec.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><span class="tl-tag">Stage 02</span><h4>Design</h4><p>Wireframes and interfaces built around real content and real user flows, not placeholder text.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><span class="tl-tag">Stage 03</span><h4>Build</h4><p>Iterative development with visible progress every week — you see it working, not just hear about it.</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><span class="tl-tag">Stage 04</span><h4>Ship</h4><p>Deployed, monitored, and documented — production-ready, not "ready for one more sprint."</p></div>
+        <div class="tl-item"><div class="tl-dot"></div><span class="tl-tag">Stage 05</span><h4>Support</h4><p>We stay on after launch for fixes, scaling, and the features that only reveal themselves once real users show up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-bg">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Case study</div>
+        <h2>Worvio: a job platform built for speed.</h2>
+      </div>
+      <div class="case-card reveal">
+        <div>
+          <div class="eyebrow">worvio.com</div>
+          <h3>From brief to live product on a Nuxt + Tailwind stack.</h3>
+          <p>Worvio connects candidates and employers with fast search and a clean, light-theme interface. Cloftware handles the full build — frontend, backend, and the search experience that keeps users on the platform.</p>
+          <a href="https://worvio.com" target="_blank" rel="noopener" class="case-link">Visit worvio.com →</a>
+        </div>
+        <div>
+          <ul class="case-features">
+            <li>Server-rendered Nuxt.js frontend for fast first loads</li>
+            <li>Structured job search with real-time filtering</li>
+            <li>Light-theme design system built for readability</li>
+            <li>Actively maintained and iterated post-launch</li>
+          </ul>
+          <div class="case-metrics">
+            <div><div class="case-metric-num">Nuxt</div><div class="case-metric-label">Frontend framework</div></div>
+            <div><div class="case-metric-num">100%</div><div class="case-metric-label">In-house built</div></div>
+            <div><div class="case-metric-num">Live</div><div class="case-metric-label">Actively maintained</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Selected work</div>
+        <h2>Products we've shipped and still run.</h2>
+        <p>A sample of platforms built and maintained by the Cloftware team.</p>
+      </div>
+      <div class="work-grid reveal">
+        <div class="work-card">
+          <div class="work-thumb thumb-1">Worvio</div>
+          <div class="work-body">
+            <div class="work-tag">Job Platform · Nuxt + Tailwind</div>
             <h3>worvio.com</h3>
-            <p>An AI-powered job platform with smart job matching, a resume builder and a profile improver, built on Nuxt.js.</p>
-            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+            <p>A modern job platform connecting candidates and employers with fast search and a clean, light-theme interface.</p>
+            <a href="https://worvio.com" target="_blank" rel="noopener" class="work-link">Visit site →</a>
           </div>
-        </a>
-        <a href="https://buldel.com" target="_blank" rel="noopener" class="portfolio-card reveal">
-          <div class="portfolio-media pm-buldel"><span>Buldel</span></div>
-          <div class="portfolio-body">
-            <span class="tagline">Core platform</span>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb thumb-2">Buldel</div>
+          <div class="work-body">
+            <div class="work-tag">Platform</div>
             <h3>buldel.com</h3>
-            <p>A full-stack platform built and maintained end to end — frontend, backend, database and cloud infrastructure.</p>
-            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+            <p>A core product platform built and maintained end-to-end, from data layer to user-facing interface.</p>
+            <a href="https://buldel.com" target="_blank" rel="noopener" class="work-link">Visit site →</a>
           </div>
-        </a>
-        <a href="https://iot.buldel.com" target="_blank" rel="noopener" class="portfolio-card reveal">
-          <div class="portfolio-media pm-iot"><span>IoT</span></div>
-          <div class="portfolio-body">
-            <span class="tagline">IoT dashboard</span>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb thumb-3">IoT · Buldel</div>
+          <div class="work-body">
+            <div class="work-tag">IoT Dashboard</div>
             <h3>iot.buldel.com</h3>
-            <p>A connected-device dashboard streaming live sensor data, built on the same infrastructure as the core Buldel platform.</p>
-            <span class="portfolio-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+            <p>A real-time IoT dashboard turning connected-device data into readable, actionable views.</p>
+            <a href="https://iot.buldel.com" target="_blank" rel="noopener" class="work-link">Visit site →</a>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="section" style="padding-top:0;">
+  <section id="engagement" class="alt-bg">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">How we work</span>
-        <h2>From idea to running system.</h2>
+        <div class="eyebrow">Ways to work with us</div>
+        <h2>Pick the engagement that fits your project.</h2>
+        <p>Every model below comes with the same team and the same code quality.</p>
       </div>
-      <div class="process-grid">
-        <div class="process-step reveal">
-          <div class="process-num">01</div>
-          <h4>Discover</h4>
-          <p>We map your workflow, users and goals before writing a single line of code.</p>
+      <div class="plans-grid reveal">
+        <div class="plan-card">
+          <h3>Fixed Scope</h3>
+          <div class="plan-for">For a defined project with a clear end point</div>
+          <ul class="plan-list"><li>Scoped deliverables and timeline</li><li>Fixed price, agreed upfront</li><li>Weekly progress check-ins</li><li>Best for MVPs and websites</li></ul>
         </div>
-        <div class="process-step reveal">
-          <div class="process-num">02</div>
-          <h4>Design</h4>
-          <p>Clean, user-friendly interfaces and a system architecture built to scale.</p>
+        <div class="plan-card featured">
+          <div class="plan-badge">MOST FLEXIBLE</div>
+          <h3>Dedicated Team</h3>
+          <div class="plan-for">For ongoing product development</div>
+          <ul class="plan-list"><li>Engineers reserved for your roadmap</li><li>Scale up or down monthly</li><li>Direct Slack / email access</li><li>Best for long-term products</li></ul>
         </div>
-        <div class="process-step reveal">
-          <div class="process-num">03</div>
-          <h4>Build</h4>
-          <p>Frontend, backend, database, AI and IoT pieces developed and integrated together.</p>
-        </div>
-        <div class="process-step reveal">
-          <div class="process-num">04</div>
-          <h4>Run</h4>
-          <p>Cloud deployment, monitoring and ongoing support after launch.</p>
+        <div class="plan-card">
+          <h3>Hourly Support</h3>
+          <div class="plan-for">For maintenance, fixes, and small features</div>
+          <ul class="plan-list"><li>No minimum commitment</li><li>Billed for time actually spent</li><li>Fast turnaround on bugs</li><li>Best for existing codebases</li></ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TEAM -->
-  <section class="section" id="team" style="padding-top:0;">
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow">Questions</div>
+        <h2>Things people usually ask.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item" open>
+          <summary>Which time zones do you work across?<span class="faq-plus"></span></summary>
+          <p>Our hours overlap with US, UK, and European working days, in addition to IST — so stand-ups and reviews don't need to wait until tomorrow.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work with an existing codebase?<span class="faq-plus"></span></summary>
+          <p>Yes. A lot of our work is picking up projects mid-flight — auditing what's there, then fixing, extending, or migrating it without a full rewrite.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is a project priced?<span class="faq-plus"></span></summary>
+          <p>Depends on the engagement model you pick: fixed price for defined scopes, monthly for a dedicated team, or hourly for ongoing support. We'll recommend one after the discovery call.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can you handle both the product and its infrastructure?</summary>
+          <p>Yes — that's the point of one team covering full-stack. We design the interface, build the backend, and set up the cloud infrastructure it all runs on.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens after launch?<span class="faq-plus"></span></summary>
+          <p>We stay on. Most clients move to hourly support or a smaller retainer for fixes, monitoring, and the features that only show up once real users arrive.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="alt-bg">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">The team</span>
-        <h2>A small team, built for full-stack delivery.</h2>
-        <p>Cloftware is a lean team covering every layer of your product, so nothing gets lost between departments.</p>
+        <div class="eyebrow">Who's behind it</div>
+        <h2>A small, senior team — on purpose.</h2>
+        <p>No layers of account managers between you and the people writing your code.</p>
       </div>
-      <div class="team-grid">
-        <div class="team-card reveal">
-          <div class="team-avatar ta1">FS</div>
-          <h4>Full-Stack Lead</h4>
-          <span class="role">Frontend · Backend</span>
-          <p>Owns the architecture end to end — from UI to database schema.</p>
-        </div>
-        <div class="team-card reveal">
-          <div class="team-avatar ta2">AI</div>
-          <h4>AI/ML Engineer</h4>
-          <span class="role">AI Integration</span>
-          <p>Builds the intelligent features that sit inside your product.</p>
-        </div>
-        <div class="team-card reveal">
-          <div class="team-avatar ta3">IoT</div>
-          <h4>IoT Systems Engineer</h4>
-          <span class="role">Hardware · Edge</span>
-          <p>Connects devices and sensors to your cloud infrastructure.</p>
-        </div>
-        <div class="team-card reveal">
-          <div class="team-avatar ta4">UX</div>
-          <h4>Product Designer</h4>
-          <span class="role">UI/UX</span>
-          <p>Shapes interfaces that are simple to use and easy to read.</p>
+      <div class="team-wrap reveal">
+        <div class="team-card">
+          <div class="avatar">SS</div>
+          <div>
+            <h4>Sonu Sahani</h4>
+            <div class="role">Founder &amp; Full-Stack Engineer</div>
+            <p>9+ years across frontend, backend, cloud, IoT, and AI integration — building the product and the infrastructure it runs on.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" id="contact" style="padding-top:0;">
+  <section id="contact">
     <div class="wrap">
-      <div class="cta-band reveal">
-        <span class="eyebrow" style="color:rgba(255,255,255,0.85);">Let's build</span>
-        <h2>Tell us what you're building.</h2>
-        <p>Whether it's a web platform, an AI feature or a full IoT-to-cloud system — we'll scope it with you in one call.</p>
-        <div class="hero-actions">
-          <a href="mailto:hello@cloftware.com" class="btn btn-primary btn-lg">Email hello@cloftware.com</a>
-          <a href="#" class="btn btn-ghost btn-lg">Book a call</a>
+      <div class="cta-section reveal">
+        <div class="eyebrow">Let's talk</div>
+        <h2>Have a project in mind?</h2>
+        <p>Tell us what you're building — we'll reply within one business day, wherever you're writing from.</p>
+        <div class="cta-row">
+          <a href="mailto:hello@cloftware.com" class="btn btn-primary">hello@cloftware.com</a>
+          <a href="#" class="btn btn-ghost">Book a call</a>
+        </div>
+        <div class="country-strip">
+          <span class="country-pill">🇺🇸 USA</span>
+          <span class="country-pill">🇬🇧 UK</span>
+          <span class="country-pill">🇮🇳 India</span>
+          <span class="country-pill">🇩🇪 Germany</span>
+          <span class="country-pill">🇨🇦 Canada</span>
         </div>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo">
-          <span class="logo-mark" aria-hidden="true"></span>
-          Cloftware
-        </div>
-        <p>Next-gen custom software — frontend, backend, database, AI, IoT and cloud infrastructure, built as one system.</p>
+        <a href="#" class="logo"><img src="logo/logo.svg" alt="Cloftware" width="600" height="600"></a>
+        <p>Global software and cloud engineering for teams building across borders.</p>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-        </ul>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#team">Team</a>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
-        <ul>
-          <li><a href="https://worvio.com" target="_blank" rel="noopener">worvio.com</a></li>
-          <li><a href="https://buldel.com" target="_blank" rel="noopener">buldel.com</a></li>
-          <li><a href="https://iot.buldel.com" target="_blank" rel="noopener">iot.buldel.com</a></li>
-        </ul>
+        <h5>Engage</h5>
+        <a href="#process">Process</a>
+        <a href="#engagement">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:hello@cloftware.com">hello@cloftware.com</a></li>
-          <li><a href="#contact">Start a project</a></li>
-        </ul>
+        <a href="mailto:hello@cloftware.com">hello@cloftware.com</a>
+        <a href="#contact">Start a project</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Cloftware. All rights reserved.</p>
-      <div class="footer-regions">
-        <span>USA</span><span>·</span><span>UK</span><span>·</span><span>India</span><span>·</span><span>Germany</span><span>·</span><span>Canada</span>
-      </div>
+    <div class="footer-row">
+      <p class="fine">© 2026 Cloftware. Built by the team that uses it.</p>
+      <p class="fine">USA · UK · India · Germany · Canada</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // mobile menu
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
+(function(){
+  const btn = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  function close(){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.textContent='☰'; }
+  btn.addEventListener('click', ()=>{
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? '✕' : '☰';
   });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', close));
+})();
 
-  // scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
+(function(){
+  const links = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = Array.from(links).map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  if(!sections.length) return;
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = '#'+entry.target.id;
+      const link = document.querySelector('.nav-links a[href="'+id+'"]');
+      if(!link) return;
+      if(entry.isIntersecting){ links.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(s=>obs.observe(s));
+})();
+
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  if(!items.length) return;
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, {threshold:0.12});
+  items.forEach(i=>obs.observe(i));
+})();
+
+// Only one FAQ open at a time
+(function(){
+  const faqs = document.querySelectorAll('.faq-item');
+  faqs.forEach(d=>{
+    d.addEventListener('toggle', ()=>{
+      if(d.open){ faqs.forEach(o=>{ if(o!==d) o.open=false; }); }
+    });
+  });
+})();
 </script>
 
 </body>
