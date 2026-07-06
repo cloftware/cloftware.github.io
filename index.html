@@ -52,32 +52,19 @@
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
   /* ---------- NAV ---------- */
-  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,253,251,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,253,251,0.88);}
   nav{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
 .logo{
     display:flex;
     align-items:center;
     flex-shrink:0;
 }
-
 .logo img{
     display:block;
+    height:40px;
     width:auto;
-    height:42px;
-    max-width:100%;
-
-    image-rendering:auto;
-
-    -webkit-transform:translate3d(0,0,0);
-    transform:translate3d(0,0,0);
-
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-
-    shape-rendering:geometricPrecision;
-    text-rendering:geometricPrecision;
+    max-width:none;
 }
-
 @media (max-width:768px){
     .logo img{
         height:36px;
