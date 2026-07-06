@@ -52,24 +52,10 @@
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 
   /* ---------- NAV ---------- */
-  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,253,251,0.88);}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,253,251,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
   nav{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
-.logo{
-    display:flex;
-    align-items:center;
-    flex-shrink:0;
-}
-.logo img{
-    display:block;
-    height:40px;
-    width:auto;
-    max-width:none;
-}
-@media (max-width:768px){
-    .logo img{
-        height:36px;
-    }
-}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo img{height:40px;width:auto;display:block;image-rendering:-webkit-optimize-contrast;}
   .nav-links{display:flex;gap:32px;align-items:center;}
   .nav-links a{font-size:14.5px;color:var(--muted);font-weight:500;position:relative;transition:color .2s;}
   .nav-links a:not(.nav-cta)::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
@@ -279,15 +265,7 @@
 
 <header>
   <nav>
-    <a href="#" class="logo">
-      <img
-        src="logo/logo.svg"
-        alt="Cloftware"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async">
-    </a>
-
+    <a href="#" class="logo"><img src="logo/logo.svg" alt="Cloftware" width="600" height="600"></a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -296,10 +274,8 @@
       <a href="#team">Team</a>
       <a href="#contact" class="nav-cta">Start a project</a>
     </div>
-
     <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">☰</button>
   </nav>
-
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services">Services</a>
     <a href="#work">Work</a>
