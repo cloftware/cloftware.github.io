@@ -4,8 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt'],
+  modules: ["nitro-cloudflare-dev"],
   css: ['~/assets/css/main.css'],
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -27,7 +28,17 @@ export default defineNuxtConfig({
       meta: [{ name: 'theme-color', content: '#007cc3' }]
     }
   },
+
   vite: {
     plugins: [tailwindcss()]
+  },
+
+  nitro: {
+    preset: "cloudflare_module",
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
+    }
   }
 })
