@@ -29,7 +29,7 @@
             {{ point }}
           </div>
         </div>
-        <a href="/#contact" class="btn-primary mt-8">Learn More</a>
+        <NuxtLink to="/about" class="btn-primary mt-8">Learn More</NuxtLink>
       </div>
     </div>
   </section>

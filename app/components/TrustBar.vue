@@ -1,5 +1,5 @@
 <template>
-  <section class="border-y border-white/10 bg-white/[0.025] py-5">
+  <section id="trust" class="border-y border-white/10 bg-white/[0.025] py-5">
     <div class="overflow-hidden">
       <div class="marquee-track flex w-max items-center gap-4">
         <div v-for="item in duplicatedItems" :key="item.key" class="mx-2 flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-bold text-slate-200 backdrop-blur-xl">

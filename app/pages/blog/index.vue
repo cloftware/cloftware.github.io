@@ -72,7 +72,7 @@ useHead({
         publisher: {
           '@type': 'Organization',
           name: 'Cloftware',
-          logo: `${siteUrl}/cloftware-logo.svg`
+          logo: `${siteUrl}/cloftware-logo.png`
         },
         blogPost: blogPosts.map((post) => ({
           '@type': 'BlogPosting',

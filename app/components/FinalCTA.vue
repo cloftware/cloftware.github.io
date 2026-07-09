@@ -13,7 +13,7 @@
           </h2>
           <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">Let's transform your ideas into scalable software.</p>
           <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="mailto:hello@cloftware.com?subject=Start%20a%20Project%20with%20Cloftware" class="btn-primary">Start Project</a>
+            <NuxtLink to="/contact" class="btn-primary">Start Project</NuxtLink>
             <a href="mailto:hello@cloftware.com?subject=Book%20a%20Free%20Consultation" class="btn-secondary">Book Free Consultation</a>
           </div>
         </div>

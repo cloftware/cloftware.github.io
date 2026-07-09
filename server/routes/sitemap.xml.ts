@@ -7,6 +7,12 @@ export default defineEventHandler((event) => {
 
   const staticPages = [
     { loc: '/', priority: '1.0', changefreq: 'weekly' },
+    { loc: '/about', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/services', priority: '0.9', changefreq: 'monthly' },
+    { loc: '/portfolio', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/industries', priority: '0.7', changefreq: 'monthly' },
+    { loc: '/technologies', priority: '0.7', changefreq: 'monthly' },
+    { loc: '/contact', priority: '0.8', changefreq: 'monthly' },
     { loc: '/blog', priority: '0.8', changefreq: 'daily' }
   ]
 
