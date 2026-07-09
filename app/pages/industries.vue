@@ -1,17 +1,19 @@
 <template>
   <main class="site-shell min-h-screen">
-    <AnimatedBackground />
     <Navbar />
-    <PageHero
-      eyebrow="Solutions"
-      title="Domain expertise across every sector we build for."
-      description="Every industry has different compliance, data, and reliability needs. Here's where Cloftware has hands-on delivery experience."
-      crumb="Solutions"
-      image="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2400&q=85&fm=webp"
-    />
+    <section class="pt-32 pb-4 sm:pt-36">
+      <div class="section-wrap">
+        <div class="reveal max-w-4xl">
+          <span class="section-eyebrow">Solutions</span>
+          <h1 class="font-display mt-6 text-[clamp(2.1rem,4.6vw,3.9rem)] font-extrabold leading-[1.08] text-[var(--ink)]">
+            Domain experience, honestly labeled.
+          </h1>
+          <p class="section-copy">Every industry has different compliance, data, and reliability needs. Here's where Cloftware has actually delivered, and where we're a strong fit to work next.</p>
+        </div>
+      </div>
+    </section>
     <IndustriesSection />
     <WhyChooseSection />
-    <TestimonialsSection />
     <FinalCTA />
     <Footer />
   </main>
@@ -21,13 +23,12 @@
 useReveal()
 
 const siteUrl = 'https://cloftware.com'
-const title = 'Industries We Serve | Cloftware Software Solutions'
-const description = 'Cloftware builds software for healthcare, finance, education, manufacturing, construction, retail, real estate, IoT, logistics, travel, hospitality, and government.'
+const title = 'Industries | Cloftware Software Solutions'
+const description = 'Where Cloftware has real delivery experience — home services & construction, IoT & smart devices, HR tech — and the industries we’re well-suited to work in next.'
 
 useSeoMeta({
   title,
   description,
-  keywords: 'industry software solutions, healthcare software, fintech software, manufacturing software, logistics software, government software',
   ogTitle: title,
   ogDescription: description,
   ogType: 'website',

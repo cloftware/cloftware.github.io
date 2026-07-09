@@ -1,5 +1,5 @@
 <template>
-  <section id="blog" class="py-24">
+  <section id="blog" class="py-20 sm:py-24">
     <div class="section-wrap">
       <div class="reveal flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
         <div>
@@ -10,15 +10,15 @@
         <NuxtLink to="/blog" class="btn-secondary w-fit">View All Blogs</NuxtLink>
       </div>
 
-      <div class="mt-12 grid gap-5 lg:grid-cols-3">
-        <article v-for="post in latestPosts" :key="post.slug" class="reveal glass-panel hover-lift overflow-hidden rounded-2xl">
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        <article v-for="post in latestPosts" :key="post.slug" class="reveal card hover-lift overflow-hidden rounded-2xl">
           <NuxtLink :to="`/blog/${post.slug}`" class="block">
-            <img :src="post.image" :alt="post.title" class="h-52 w-full object-cover opacity-90" loading="lazy">
+            <img :src="post.image" :alt="post.title" class="h-48 w-full object-cover" loading="lazy">
             <div class="p-6">
-              <p class="text-xs font-bold uppercase tracking-[0.16em] text-sky-300">{{ post.category }}</p>
-              <h3 class="font-display mt-3 text-xl font-extrabold leading-tight text-white">{{ post.title }}</h3>
-              <p class="mt-3 text-sm leading-6 text-slate-400">{{ post.description }}</p>
-              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-slate-500">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-[var(--brand-dark)]">{{ post.category }}</p>
+              <h3 class="font-display mt-3 text-xl font-extrabold leading-tight text-[var(--ink)]">{{ post.title }}</h3>
+              <p class="mt-3 text-sm leading-6 text-[var(--body)]">{{ post.description }}</p>
+              <div class="mt-5 flex items-center justify-between text-xs font-semibold text-[var(--muted)]">
                 <span>{{ formatDate(post.publishedAt) }}</span>
                 <span>{{ post.readTime }}</span>
               </div>
