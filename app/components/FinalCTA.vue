@@ -1,21 +1,67 @@
 <template>
   <section id="contact" class="py-24">
     <div class="section-wrap">
-      <div class="reveal premium-border relative overflow-hidden rounded-[2rem] border border-sky-300/20 bg-[#0a1728] p-8 text-center shadow-[0_40px_120px_rgba(0,124,195,0.18)] md:p-14">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,124,195,0.24),transparent_34rem),linear-gradient(180deg,rgba(255,255,255,0.04),transparent)]" />
-        <div class="relative">
-          <div class="logo-surface mx-auto mb-7 w-fit px-4 py-3">
-            <BrandLogo />
+      <div
+        class="relative overflow-hidden rounded-[36px] border border-sky-400/15 bg-gradient-to-b from-[#10233c] to-[#091524] p-10 md:p-16 text-center shadow-[0_35px_100px_rgba(0,120,255,.18)]"
+      >
+        <!-- Background Glow -->
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,153,255,.22),transparent_45%)]"
+        />
+
+        <div class="relative z-10">
+
+          <!-- Logo + Badge -->
+          <div class="mb-10 flex flex-col items-center justify-center gap-5">
+
+            <div
+              class="rounded-2xl bg-white/95 p-5 shadow-2xl backdrop-blur"
+            >
+              <BrandLogo class="h-14 w-auto" />
+            </div>
+
+            <span
+              class="rounded-full border border-sky-400/20 bg-sky-500/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-sky-300"
+            >
+              Start a Conversation
+            </span>
+
           </div>
-          <span class="section-eyebrow">Start a Conversation</span>
-          <h2 class="font-display mx-auto mt-6 max-w-3xl text-[clamp(2rem,4.2vw,4.15rem)] font-extrabold leading-[1.04] text-white">
-            Ready to Build Your Next Digital Product?
+
+          <h2
+            class="mx-auto max-w-4xl font-display text-[clamp(2.4rem,5vw,4.5rem)] font-extrabold leading-tight text-white"
+          >
+            Ready to Build Your
+            <span class="text-sky-400">
+              Next Digital Product?
+            </span>
           </h2>
-          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">Let's transform your ideas into scalable software.</p>
-          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <NuxtLink to="/contact" class="btn-primary">Start Project</NuxtLink>
-            <a href="mailto:hello@cloftware.com?subject=Book%20a%20Free%20Consultation" class="btn-secondary">Book Free Consultation</a>
+
+          <p
+            class="mx-auto mt-7 max-w-2xl text-xl leading-9 text-slate-300"
+          >
+            Let's transform your ideas into scalable software with modern Web,
+            Mobile, Cloud and AI solutions.
+          </p>
+
+          <div
+            class="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row"
+          >
+            <NuxtLink
+              to="/contact"
+              class="btn-primary min-w-[220px]"
+            >
+              Start Project
+            </NuxtLink>
+
+            <a
+              href="mailto:hello@cloftware.com"
+              class="btn-secondary min-w-[220px]"
+            >
+              Book Free Consultation
+            </a>
           </div>
+
         </div>
       </div>
     </div>
