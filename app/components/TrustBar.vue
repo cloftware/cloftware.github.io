@@ -1,9 +1,9 @@
 <template>
-  <section id="trust" class="border-y border-white/10 bg-white/[0.025] py-5">
+  <section class="section-soft border-y border-[var(--border)] py-5">
     <div class="overflow-hidden">
       <div class="marquee-track flex w-max items-center gap-4">
-        <div v-for="item in duplicatedItems" :key="item.key" class="mx-2 flex h-14 items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-bold text-slate-200 backdrop-blur-xl">
-          <span class="h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_14px_rgba(0,124,195,0.9)]" />
+        <div v-for="item in duplicatedItems" :key="item.key" class="mx-2 flex h-12 items-center gap-3 rounded-full border border-[var(--border)] bg-white px-6 text-sm font-bold text-[var(--ink)] shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-[var(--brand)]" />
           {{ item.label }}
         </div>
       </div>

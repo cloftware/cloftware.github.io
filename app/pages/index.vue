@@ -1,18 +1,16 @@
 <template>
   <main class="site-shell">
-    <AnimatedBackground />
     <Navbar />
     <HeroSection />
     <TrustBar />
     <StatsSection />
     <AboutPreview />
-    <ServicesSection :limit="3" show-all-link />
+    <ServicesSection />
     <WhyChooseSection />
-    <PortfolioSection :limit="3" />
-    <TechnologySection :limit="12" show-all-link />
+    <PortfolioSection />
+    <TechnologySection />
     <DevelopmentProcess />
-    <IndustriesSection :limit="8" show-all-link />
-    <TestimonialsSection />
+    <IndustriesSection />
     <BlogPreviewSection />
     <FaqSection />
     <FinalCTA />
@@ -24,9 +22,9 @@
 useReveal()
 
 const siteUrl = 'https://cloftware.com/'
-const title = 'Cloftware | Enterprise Software Engineering, Web, Mobile, Cloud, AI & IoT'
-const description = 'Cloftware builds enterprise-grade custom software, web applications, mobile apps, cloud infrastructure, AI platforms, IoT systems, APIs, SaaS products, CRM, ERP, and scalable digital products for global businesses.'
-const keywords = 'Cloftware, software engineering company, custom software development, web development, mobile app development, cloud engineering, AI development, IoT solutions, Laravel development, Nuxt.js development, Vue.js development, Node.js development, SaaS development, enterprise software'
+const title = 'Cloftware | Software Engineering — Web, Mobile, Cloud, AI & IoT'
+const description = 'Cloftware designs and builds custom web applications, mobile apps, cloud infrastructure, AI features, and IoT products — real, live projects, not a portfolio of promises.'
+const keywords = 'Cloftware, software engineering, custom software development, web development, mobile app development, cloud engineering, AI development, IoT solutions, ESP32 development, MQTT, Laravel development, Nuxt.js development, Vue.js development, Node.js development, SaaS development'
 
 useSeoMeta({
   title,
@@ -36,11 +34,11 @@ useSeoMeta({
   ogDescription: description,
   ogType: 'website',
   ogUrl: siteUrl,
-  ogImage: `${siteUrl}og-cloftware.jpg`,
+  ogImage: `${siteUrl}cloftware-logo.png`,
   twitterCard: 'summary_large_image',
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: `${siteUrl}og-cloftware.jpg`
+  twitterImage: `${siteUrl}cloftware-logo.png`
 })
 
 useHead({
@@ -56,9 +54,8 @@ useHead({
             '@id': `${siteUrl}#organization`,
             name: 'Cloftware',
             url: siteUrl,
-            logo: `${siteUrl}cloftware-logo.png`,
+            logo: `${siteUrl}cloftware-logo.svg`,
             slogan: 'Software Engineering - Web - Mobile - Cloud - AI - IoT',
-            areaServed: ['United States', 'United Kingdom', 'Canada', 'Germany', 'India'],
             contactPoint: {
               '@type': 'ContactPoint',
               email: 'hello@cloftware.com',

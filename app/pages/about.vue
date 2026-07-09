@@ -1,19 +1,21 @@
 <template>
   <main class="site-shell min-h-screen">
-    <AnimatedBackground />
     <Navbar />
-    <PageHero
-      eyebrow="About Cloftware"
-      title="The story, principles, and people behind our engineering."
-      description="Founded to bring senior-level discipline to custom software, Cloftware now supports startups, SMBs, and enterprises across five countries."
-      crumb="About"
-      image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2400&q=85&fm=webp"
-    />
+    <section class="pt-32 pb-4 sm:pt-36">
+      <div class="section-wrap">
+        <div class="reveal max-w-4xl">
+          <span class="section-eyebrow">About Cloftware</span>
+          <h1 class="font-display mt-6 text-[clamp(2.1rem,4.6vw,3.9rem)] font-extrabold leading-[1.08] text-[var(--ink)]">
+            A small team, real products, no invented client roster.
+          </h1>
+          <p class="section-copy">Cloftware is a focused engineering team, not a large agency. Here's what we actually do and how we work.</p>
+        </div>
+      </div>
+    </section>
     <AboutPreview />
     <StatsSection />
     <WhyChooseSection />
     <DevelopmentProcess />
-    <TestimonialsSection />
     <FinalCTA />
     <Footer />
   </main>
@@ -23,13 +25,12 @@
 useReveal()
 
 const siteUrl = 'https://cloftware.com'
-const title = 'About Cloftware | Enterprise Software Engineering Company'
-const description = 'Cloftware is a senior software engineering partner helping startups, SMBs, and enterprises design, build, and scale reliable web, mobile, cloud, AI, and IoT products.'
+const title = 'About Cloftware | Software Engineering Team'
+const description = 'Cloftware is a small, focused software engineering team that designs, builds, and supports real products — web, mobile, cloud, AI, and IoT — for a handful of real clients.'
 
 useSeoMeta({
   title,
   description,
-  keywords: 'about Cloftware, software engineering company, custom software partner, enterprise software team',
   ogTitle: title,
   ogDescription: description,
   ogType: 'website',

@@ -1,45 +1,44 @@
 <template>
   <main class="site-shell min-h-screen">
-    <AnimatedBackground />
     <Navbar />
 
-    <article v-if="post" class="pt-32 pb-20">
+    <article v-if="post" class="pt-32 pb-20 sm:pt-36">
       <div class="section-wrap">
-        <NuxtLink to="/blog" class="btn-ghost mb-8 px-0">Back to Blog</NuxtLink>
+        <NuxtLink to="/blog" class="btn-ghost mb-8 px-0">&larr; Back to Blog</NuxtLink>
         <header class="reveal max-w-4xl">
           <span class="section-eyebrow">{{ post.category }}</span>
-          <h1 class="font-display mt-6 text-[clamp(2.25rem,5vw,4.65rem)] font-extrabold leading-[1.04] text-white">{{ post.title }}</h1>
+          <h1 class="font-display mt-6 text-[clamp(2rem,4.6vw,3.7rem)] font-extrabold leading-[1.1] text-[var(--ink)]">{{ post.title }}</h1>
           <p class="section-copy">{{ post.description }}</p>
-          <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-slate-400">
+          <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-[var(--muted)]">
             <span>{{ formatDate(post.publishedAt) }}</span>
             <span>{{ post.readTime }}</span>
             <span>{{ post.author.name }}</span>
           </div>
         </header>
 
-        <div class="reveal mt-10 overflow-hidden rounded-[1.5rem] border border-white/10">
-          <img :src="post.image" :alt="post.title" class="h-[320px] w-full object-cover opacity-90 md:h-[460px]" loading="eager">
+        <div class="reveal mt-10 overflow-hidden rounded-[1.5rem] border border-[var(--border)]">
+          <img :src="post.image" :alt="post.title" class="h-[260px] w-full object-cover sm:h-[380px] md:h-[440px]" loading="eager">
         </div>
 
-        <div class="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div class="reveal glass-panel rounded-[1.5rem] p-6 md:p-10">
+        <div class="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div class="reveal card rounded-[1.5rem] p-6 md:p-10">
             <section v-for="section in post.sections" :key="section.heading" class="article-section">
-              <h2 class="font-display text-2xl font-extrabold text-white">{{ section.heading }}</h2>
-              <p class="mt-4 text-base leading-8 text-slate-300">{{ section.body }}</p>
+              <h2 class="font-display text-2xl font-extrabold text-[var(--ink)]">{{ section.heading }}</h2>
+              <p class="mt-4 text-base leading-8 text-[var(--body)]">{{ section.body }}</p>
             </section>
-            <div class="mt-10 rounded-2xl border border-sky-300/20 bg-sky-400/10 p-6">
-              <h2 class="font-display text-2xl font-extrabold text-white">Need help building this?</h2>
-              <p class="mt-3 text-sm leading-7 text-slate-300">Cloftware designs and develops software, cloud, AI, SaaS, and IoT systems for businesses worldwide.</p>
+            <div class="mt-10 rounded-2xl border border-[var(--brand)]/20 bg-[var(--brand-light)] p-6">
+              <h2 class="font-display text-2xl font-extrabold text-[var(--ink)]">Need help building this?</h2>
+              <p class="mt-3 text-sm leading-7 text-[var(--body)]">Cloftware designs and develops software, cloud, AI, SaaS, and IoT systems for businesses worldwide.</p>
               <NuxtLink to="/#contact" class="btn-primary mt-5">Start Your Project</NuxtLink>
             </div>
           </div>
 
-          <aside class="reveal h-fit rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
-            <h2 class="font-display text-lg font-extrabold text-white">Related Articles</h2>
+          <aside class="reveal h-fit card rounded-[1.5rem] p-6">
+            <h2 class="font-display text-lg font-extrabold text-[var(--ink)]">Related Articles</h2>
             <div class="mt-5 space-y-4">
-              <NuxtLink v-for="related in relatedPosts" :key="related.slug" :to="`/blog/${related.slug}`" class="block rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition hover:border-sky-300/35 hover:bg-sky-400/10">
-                <p class="text-xs font-bold uppercase tracking-[0.14em] text-sky-300">{{ related.category }}</p>
-                <h3 class="mt-2 text-sm font-bold leading-6 text-white">{{ related.title }}</h3>
+              <NuxtLink v-for="related in relatedPosts" :key="related.slug" :to="`/blog/${related.slug}`" class="block rounded-2xl border border-[var(--border)] p-4 transition hover:border-[var(--brand)]/35 hover:bg-[var(--brand-light)]">
+                <p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--brand-dark)]">{{ related.category }}</p>
+                <h3 class="mt-2 text-sm font-bold leading-6 text-[var(--ink)]">{{ related.title }}</h3>
               </NuxtLink>
             </div>
           </aside>
@@ -105,13 +104,25 @@ useHead({
           name: 'Cloftware',
           logo: {
             '@type': 'ImageObject',
-            url: `${siteUrl}/cloftware-logo.png`
+            url: `${siteUrl}/cloftware-logo.svg`
           }
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': postUrl.value
         }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.value?.title, item: postUrl.value }
+        ]
       })
     }
   ]

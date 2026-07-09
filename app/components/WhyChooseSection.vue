@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24">
+  <section class="py-20 sm:py-24">
     <div class="section-wrap">
       <div class="reveal grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
@@ -9,10 +9,10 @@
         <p class="section-copy lg:mt-10">Every engagement is led with senior technical judgment, clear communication, and a delivery model built around dependable business outcomes.</p>
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article v-for="item in reasons" :key="item.title" class="reveal glass-panel hover-lift rounded-2xl p-6">
-          <p class="text-sm font-extrabold text-sky-300">{{ item.meta }}</p>
-          <h3 class="font-display mt-5 text-lg font-extrabold text-white">{{ item.title }}</h3>
-          <p class="mt-3 text-sm leading-6 text-slate-400">{{ item.description }}</p>
+        <article v-for="item in reasons" :key="item.title" class="reveal card hover-lift rounded-2xl p-6">
+          <p class="text-sm font-extrabold text-[var(--brand)]">{{ item.meta }}</p>
+          <h3 class="font-display mt-5 text-lg font-extrabold text-[var(--ink)]">{{ item.title }}</h3>
+          <p class="mt-3 text-sm leading-6 text-[var(--body)]">{{ item.description }}</p>
         </article>
       </div>
     </div>
