@@ -21,7 +21,7 @@
           Cloftware builds enterprise-grade custom web applications, mobile apps, AI platforms, cloud infrastructure, IoT systems, APIs, and scalable digital products for businesses worldwide.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a href="/#contact" class="btn-primary">Start Your Project <span aria-hidden="true">&rarr;</span></a>
+          <a href="/#contact" class="btn-primary">Start Your Project <IconsArrowRight /></a>
           <NuxtLink to="/services" class="btn-secondary">Explore Services</NuxtLink>
           <NuxtLink to="/portfolio" class="btn-ghost">Watch Our Work</NuxtLink>
         </div>

@@ -10,16 +10,17 @@
           <p class="mt-6 max-w-sm text-sm leading-7 text-slate-400">A small engineering team that designs, builds, and supports real software — from business websites to IoT hardware and AI features.</p>
         </div>
 
-        <div class="grid gap-8 sm:grid-cols-3">
+        <nav class="grid gap-8 sm:grid-cols-3" aria-label="Footer">
           <div v-for="column in columns" :key="column.title">
             <h3 class="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-white">{{ column.title }}</h3>
             <ul class="mt-4 space-y-3">
               <li v-for="link in column.links" :key="link.label">
-                <a :href="link.href" :target="link.external ? '_blank' : undefined" :rel="link.external ? 'noopener' : undefined" class="text-sm text-slate-400 transition hover:text-[#5eb6e8]">{{ link.label }}</a>
+                <a v-if="link.external" :href="link.href" target="_blank" rel="noopener" class="text-sm text-slate-400 transition hover:text-[#5eb6e8]">{{ link.label }}</a>
+                <NuxtLink v-else :to="link.href" class="text-sm text-slate-400 transition hover:text-[#5eb6e8]">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
-        </div>
+        </nav>
 
         <div>
           <h3 class="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-white">Newsletter</h3>
@@ -30,16 +31,16 @@
           </form>
           <div class="mt-6 flex gap-3 text-sm font-bold text-slate-400">
             <a href="https://www.linkedin.com/company/cloftware" class="hover:text-[#5eb6e8]" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="/blog" class="hover:text-[#5eb6e8]">Blog</a>
-            <a href="/#contact" class="hover:text-[#5eb6e8]">Contact</a>
+            <NuxtLink to="/blog" class="hover:text-[#5eb6e8]">Blog</NuxtLink>
+            <NuxtLink to="/contact" class="hover:text-[#5eb6e8]">Contact</NuxtLink>
           </div>
         </div>
       </div>
       <div class="mt-12 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row">
         <p>&copy; {{ year }} Cloftware. All rights reserved.</p>
         <div class="flex gap-5">
-          <a href="/privacy" class="hover:text-[#5eb6e8]">Privacy Policy</a>
-          <a href="/terms" class="hover:text-[#5eb6e8]">Terms</a>
+          <NuxtLink to="/privacy" class="hover:text-[#5eb6e8]">Privacy Policy</NuxtLink>
+          <NuxtLink to="/terms" class="hover:text-[#5eb6e8]">Terms</NuxtLink>
           <a href="mailto:hello@cloftware.com" class="hover:text-[#5eb6e8]">hello@cloftware.com</a>
         </div>
       </div>
@@ -56,10 +57,10 @@ const columns = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/#about' },
+      { label: 'About', href: '/about' },
       { label: 'Portfolio', href: '/portfolio' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Contact', href: '/#contact' }
+      { label: 'Contact', href: '/contact' }
     ]
   },
   {

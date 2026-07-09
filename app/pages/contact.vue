@@ -40,7 +40,7 @@
                 <textarea id="message" v-model="form.message" required rows="5" placeholder="Tell us about your goals, timeline, and budget." class="w-full resize-none rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--brand)]/50" />
               </div>
               <div class="sm:col-span-2">
-                <button type="submit" class="btn-primary w-full sm:w-fit">Send Message <span aria-hidden="true">&rarr;</span></button>
+                <button type="submit" class="btn-primary w-full sm:w-fit">Send Message <IconsArrowRight /></button>
                 <p v-if="submitted" class="mt-4 text-sm font-semibold text-[var(--brand-dark)]">Thanks! Your email client should now open with your message ready to send.</p>
               </div>
             </form>

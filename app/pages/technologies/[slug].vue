@@ -4,7 +4,7 @@
 
     <article v-if="tech" class="pt-32 pb-20 sm:pt-36">
       <div class="section-wrap">
-        <NuxtLink to="/technologies" class="btn-ghost mb-8 px-0">&larr; All Technologies</NuxtLink>
+        <NuxtLink to="/technologies" class="btn-ghost mb-8 px-0"><IconsArrowLeft /> All Technologies</NuxtLink>
         <header class="reveal max-w-4xl">
           <span class="section-eyebrow">{{ tech.category }}</span>
           <h1 class="font-display mt-6 text-[clamp(2rem,4.6vw,3.7rem)] font-extrabold leading-[1.1] text-[var(--ink)]">{{ tech.name }}</h1>

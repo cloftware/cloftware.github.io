@@ -10,7 +10,9 @@
         <details v-for="faq in faqs" :key="faq.question" class="group card rounded-2xl p-5 open:border-[var(--brand)]/35 open:bg-[var(--brand-light)]">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-extrabold text-[var(--ink)] md:text-lg">
             {{ faq.question }}
-            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--border)] bg-white text-[var(--brand-dark)] transition group-open:rotate-45">+</span>
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--border)] bg-white text-[var(--brand-dark)] text-base transition group-open:rotate-180">
+              <IconsChevronDown />
+            </span>
           </summary>
           <p class="mt-4 text-sm leading-7 text-[var(--body)]">{{ faq.answer }}</p>
         </details>

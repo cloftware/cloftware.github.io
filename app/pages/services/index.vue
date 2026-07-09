@@ -16,7 +16,7 @@
             <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand-light)] text-sm font-extrabold text-[var(--brand-dark)]">{{ service.index }}</div>
             <h2 class="font-display mt-6 text-xl font-extrabold text-[var(--ink)]">{{ service.title }}</h2>
             <p class="mt-3 text-sm leading-6 text-[var(--body)]">{{ service.summary }}</p>
-            <span class="btn-ghost mt-5 inline-flex text-sm font-bold">Learn more &rarr;</span>
+            <span class="btn-ghost mt-5 inline-flex text-sm font-bold">Learn more <IconsArrowRight /></span>
           </NuxtLink>
         </div>
       </div>

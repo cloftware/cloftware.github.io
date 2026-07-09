@@ -4,7 +4,7 @@
 
     <article v-if="post" class="pt-32 pb-20 sm:pt-36">
       <div class="section-wrap">
-        <NuxtLink to="/blog" class="btn-ghost mb-8 px-0">&larr; Back to Blog</NuxtLink>
+        <NuxtLink to="/blog" class="btn-ghost mb-8 px-0"><IconsArrowLeft /> Back to Blog</NuxtLink>
         <header class="reveal max-w-4xl">
           <span class="section-eyebrow">{{ post.category }}</span>
           <h1 class="font-display mt-6 text-[clamp(2rem,4.6vw,3.7rem)] font-extrabold leading-[1.1] text-[var(--ink)]">{{ post.title }}</h1>
