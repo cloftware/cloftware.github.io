@@ -1,5 +1,17 @@
 <template>
   <section id="home" class="relative flex min-h-screen items-center overflow-hidden pt-28">
+    <div class="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <img
+        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2600&q=85&fm=webp"
+        alt=""
+        class="hero-bg-img h-full w-full object-cover opacity-45"
+        fetchpriority="high"
+        decoding="async"
+      >
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,11,21,0.55)_0%,rgba(6,11,21,0.82)_58%,rgba(6,11,21,0.98)_100%)]" />
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,124,195,0.38),transparent_38rem),radial-gradient(circle_at_88%_78%,rgba(0,124,195,0.22),transparent_34rem)]" />
+    </div>
+
     <div class="section-wrap grid items-center gap-14 pb-16 lg:grid-cols-[1.02fr_0.98fr]">
       <div class="reveal">
         <div class="section-eyebrow">
@@ -14,9 +26,9 @@
           Cloftware builds enterprise-grade software solutions including custom web applications, mobile apps, AI platforms, cloud infrastructure, IoT systems, APIs, enterprise software, and scalable digital products for businesses worldwide.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href="/#contact" class="btn-primary">Start Your Project <span aria-hidden="true">-></span></a>
-          <a href="/#services" class="btn-secondary">Explore Services</a>
-          <a href="/#portfolio" class="btn-ghost">Watch Our Work</a>
+          <NuxtLink to="/contact" class="btn-primary">Start Your Project <span aria-hidden="true">-></span></NuxtLink>
+          <NuxtLink to="/services" class="btn-secondary">Explore Services</NuxtLink>
+          <NuxtLink to="/portfolio" class="btn-ghost">Watch Our Work</NuxtLink>
         </div>
         <div class="mt-8 flex flex-wrap items-center gap-4 text-sm font-semibold text-slate-400">
           <span class="h-px w-12 bg-sky-300/40" />
@@ -80,6 +92,13 @@
         </div>
       </div>
     </div>
+
+    <a href="#trust" class="scroll-cue absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-slate-400 sm:flex" aria-hidden="true">
+      Scroll
+      <span class="h-9 w-5 rounded-full border border-white/20 p-1">
+        <span class="block h-1.5 w-1.5 rounded-full bg-sky-300 motion-safe:animate-[scrollDot_1.8s_ease-in-out_infinite]" />
+      </span>
+    </a>
   </section>
 </template>
 
@@ -118,6 +137,40 @@ const parallaxStyle = (depth: number) => ({
   }
   55% {
     transform: translateX(120%);
+  }
+}
+
+.hero-bg-img {
+  animation: heroKenBurns 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1.5%, -1.5%, 0);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-img {
+    animation: none;
   }
 }
 </style>

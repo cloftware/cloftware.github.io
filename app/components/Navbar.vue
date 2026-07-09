@@ -4,20 +4,26 @@
       <div class="h-full bg-gradient-to-r from-sky-400 via-[#007cc3] to-cyan-200" :style="{ width: `${scrollProgress}%` }" />
     </div>
     <nav class="section-wrap flex h-20 items-center justify-between" aria-label="Primary navigation">
-      <a href="/" class="group flex items-center" aria-label="Cloftware home">
+      <NuxtLink to="/" class="group flex items-center" aria-label="Cloftware home">
         <span class="logo-surface px-3 py-2 transition group-hover:-translate-y-0.5">
           <BrandLogo size="sm" />
         </span>
-      </a>
+      </NuxtLink>
 
       <div class="hidden items-center gap-1 lg:flex">
-        <a v-for="item in navItems" :key="item.href" :href="item.href" class="rounded-full px-3 py-2 text-[0.82rem] font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white">
+        <NuxtLink
+          v-for="item in navItems"
+          :key="item.href"
+          :to="item.href"
+          class="rounded-full px-3 py-2 text-[0.82rem] font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white"
+          active-class="!text-white bg-white/5"
+        >
           {{ item.label }}
-        </a>
+        </NuxtLink>
       </div>
 
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="/#contact" class="btn-secondary min-h-10 px-4 text-[0.82rem]">Start Project</a>
+        <NuxtLink to="/contact" class="btn-secondary min-h-10 px-4 text-[0.82rem]">Start Project</NuxtLink>
         <a href="mailto:hello@cloftware.com?subject=Book%20a%20Consultation%20with%20Cloftware" class="btn-primary min-h-10 px-4 text-[0.82rem]">Book Consultation</a>
       </div>
 
@@ -37,11 +43,11 @@
           <div class="logo-surface mx-1 mb-3 w-fit px-3 py-2">
             <BrandLogo size="sm" />
           </div>
-          <a v-for="item in navItems" :key="item.href" :href="item.href" class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 hover:bg-white/5" @click="menuOpen = false">
+          <NuxtLink v-for="item in navItems" :key="item.href" :to="item.href" class="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 hover:bg-white/5" @click="menuOpen = false">
             {{ item.label }}
-          </a>
+          </NuxtLink>
           <div class="mt-3 grid gap-2">
-            <a href="/#contact" class="btn-secondary text-sm" @click="menuOpen = false">Start Project</a>
+            <NuxtLink to="/contact" class="btn-secondary text-sm" @click="menuOpen = false">Start Project</NuxtLink>
             <a href="mailto:hello@cloftware.com?subject=Book%20a%20Consultation%20with%20Cloftware" class="btn-primary text-sm" @click="menuOpen = false">Book Consultation</a>
           </div>
         </div>
@@ -56,13 +62,13 @@ const scrollProgress = ref(0)
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Solutions', href: '/#industries' },
-  { label: 'Technologies', href: '/#technologies' },
-  { label: 'Portfolio', href: '/#portfolio' },
-  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Solutions', href: '/industries' },
+  { label: 'Technologies', href: '/technologies' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/#contact' }
+  { label: 'Contact', href: '/contact' }
 ]
 
 onMounted(() => {

@@ -16,7 +16,7 @@
             <h3 class="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-white">{{ column.title }}</h3>
             <ul class="mt-4 space-y-3">
               <li v-for="link in column.links" :key="link.label">
-                <a :href="link.href" class="text-sm text-slate-400 transition hover:text-sky-300">{{ link.label }}</a>
+                <NuxtLink :to="link.href" class="text-sm text-slate-400 transition hover:text-sky-300">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
@@ -31,16 +31,16 @@
           </form>
           <div class="mt-6 flex gap-3 text-sm font-bold text-slate-400">
             <a href="https://www.linkedin.com/company/cloftware" class="hover:text-sky-300" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="/blog" class="hover:text-sky-300">Blog</a>
-            <a href="/#contact" class="hover:text-sky-300">Contact</a>
+            <NuxtLink to="/blog" class="hover:text-sky-300">Blog</NuxtLink>
+            <NuxtLink to="/contact" class="hover:text-sky-300">Contact</NuxtLink>
           </div>
         </div>
       </div>
       <div class="mt-12 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row">
         <p>(c) {{ year }} Cloftware. All rights reserved.</p>
         <div class="flex gap-5">
-          <a href="/#contact" class="hover:text-sky-300">Privacy Policy</a>
-          <a href="/#contact" class="hover:text-sky-300">Terms</a>
+          <NuxtLink to="/contact" class="hover:text-sky-300">Privacy Policy</NuxtLink>
+          <NuxtLink to="/contact" class="hover:text-sky-300">Terms</NuxtLink>
           <a href="mailto:hello@cloftware.com" class="hover:text-sky-300">hello@cloftware.com</a>
         </div>
       </div>
@@ -55,31 +55,31 @@ const columns = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/#about' },
-      { label: 'Portfolio', href: '/#portfolio' },
+      { label: 'About', href: '/about' },
+      { label: 'Portfolio', href: '/portfolio' },
       { label: 'Blogs', href: '/blog' },
-      { label: 'Careers', href: '/#contact' },
-      { label: 'Contact', href: '/#contact' }
+      { label: 'Careers', href: '/contact' },
+      { label: 'Contact', href: '/contact' }
     ]
   },
   {
     title: 'Services',
     links: [
-      { label: 'Custom Software', href: '/#services' },
-      { label: 'Web Development', href: '/#services' },
-      { label: 'Mobile Apps', href: '/#services' },
-      { label: 'Cloud Engineering', href: '/#services' },
-      { label: 'AI Development', href: '/#services' }
+      { label: 'Custom Software', href: '/services' },
+      { label: 'Web Development', href: '/services' },
+      { label: 'Mobile Apps', href: '/services' },
+      { label: 'Cloud Engineering', href: '/services' },
+      { label: 'AI Development', href: '/services' }
     ]
   },
   {
     title: 'Solutions',
     links: [
-      { label: 'Healthcare', href: '/#industries' },
-      { label: 'FinTech', href: '/#industries' },
-      { label: 'Manufacturing', href: '/#industries' },
-      { label: 'Logistics', href: '/#industries' },
-      { label: 'Government', href: '/#industries' }
+      { label: 'Healthcare', href: '/industries' },
+      { label: 'FinTech', href: '/industries' },
+      { label: 'Manufacturing', href: '/industries' },
+      { label: 'Logistics', href: '/industries' },
+      { label: 'Government', href: '/industries' }
     ]
   }
 ]

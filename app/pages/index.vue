@@ -6,12 +6,12 @@
     <TrustBar />
     <StatsSection />
     <AboutPreview />
-    <ServicesSection />
+    <ServicesSection :limit="3" show-all-link />
     <WhyChooseSection />
-    <PortfolioSection />
-    <TechnologySection />
+    <PortfolioSection :limit="3" />
+    <TechnologySection :limit="12" show-all-link />
     <DevelopmentProcess />
-    <IndustriesSection />
+    <IndustriesSection :limit="8" show-all-link />
     <TestimonialsSection />
     <BlogPreviewSection />
     <FaqSection />
@@ -56,7 +56,7 @@ useHead({
             '@id': `${siteUrl}#organization`,
             name: 'Cloftware',
             url: siteUrl,
-            logo: `${siteUrl}cloftware-logo.svg`,
+            logo: `${siteUrl}cloftware-logo.png`,
             slogan: 'Software Engineering - Web - Mobile - Cloud - AI - IoT',
             areaServed: ['United States', 'United Kingdom', 'Canada', 'Germany', 'India'],
             contactPoint: {
@@ -75,7 +75,7 @@ useHead({
             publisher: { '@id': `${siteUrl}#organization` },
             potentialAction: {
               '@type': 'ContactAction',
-              target: `${siteUrl}#contact`
+              target: `${siteUrl}contact`
             }
           },
           {

@@ -105,7 +105,7 @@ useHead({
           name: 'Cloftware',
           logo: {
             '@type': 'ImageObject',
-            url: `${siteUrl}/cloftware-logo.svg`
+            url: `${siteUrl}/cloftware-logo.png`
           }
         },
         mainEntityOfPage: {

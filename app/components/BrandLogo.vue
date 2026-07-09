@@ -1,11 +1,14 @@
 <template>
   <img
-    src="/cloftware-logo.svg"
+    src="/cloftware-logo.png"
     alt="Cloftware"
+    width="898"
+    height="250"
     class="block h-auto object-contain"
     :class="sizeClass"
     loading="eager"
     decoding="async"
+    fetchpriority="high"
   >
 </template>
 
