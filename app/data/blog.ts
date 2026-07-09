@@ -163,6 +163,64 @@ export const blogPosts: BlogPost[] = [
         body: 'Successful SaaS products evolve through usage analytics, customer feedback, roadmap planning, performance monitoring, and disciplined releases. The engineering process should support continuous improvement.'
       }
     ]
+  },
+  {
+    slug: 'native-vs-cross-platform-mobile-app-development',
+    title: 'Native vs Cross-Platform Mobile App Development: How to Choose',
+    description: 'A practical comparison of native Android/iOS development versus Flutter and other cross-platform frameworks, and how to pick the right approach for your budget and timeline.',
+    category: 'Mobile Development',
+    publishedAt: '2026-07-09',
+    updatedAt: '2026-07-09',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1400&q=85&fm=webp',
+    keywords: ['mobile app development', 'cross-platform app development', 'Flutter development', 'native Android development', 'iOS app development'],
+    author: {
+      name: 'Cloftware Mobile Team',
+      role: 'Mobile Engineering'
+    },
+    sections: [
+      {
+        heading: 'The real trade-off is speed vs platform depth',
+        body: 'Cross-platform frameworks like Flutter let a small team ship one codebase to Android and iOS, cutting development time and cost significantly. Native development (Kotlin/Swift) gives deeper access to platform-specific APIs and the smoothest possible performance, but means maintaining two separate codebases. Most business apps — booking tools, dashboards, customer portals — don’t need that depth and are better served by cross-platform.'
+      },
+      {
+        heading: 'Backend and API design matter more than the framework choice',
+        body: 'Whichever framework you pick, the app is only as reliable as the API and backend behind it. Plan authentication, offline behaviour, push notifications, and data sync before committing to a UI framework — these decisions affect both native and cross-platform builds equally.'
+      },
+      {
+        heading: 'Budget for the app store lifecycle, not just the build',
+        body: 'Shipping the first version is the easy part. Budget for app store review cycles, OS version updates, crash monitoring, and the ongoing update cadence both Apple and Google expect from active apps — an app that stops getting updates loses store visibility over time.'
+      }
+    ]
+  },
+  {
+    slug: 'website-seo-core-web-vitals-guide',
+    title: 'Website SEO and Core Web Vitals: What Actually Affects Google Rankings',
+    description: 'A grounded look at which technical SEO factors — rendering, structured data, Core Web Vitals, and content structure — actually move the needle for search and AI answer engines.',
+    category: 'Web Engineering',
+    publishedAt: '2026-07-09',
+    updatedAt: '2026-07-09',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85&fm=webp',
+    keywords: ['website SEO', 'Core Web Vitals', 'technical SEO', 'server-side rendering', 'AI search optimization'],
+    author: {
+      name: 'Cloftware Web Team',
+      role: 'Web Engineering'
+    },
+    sections: [
+      {
+        heading: 'Rendering strategy is a ranking factor, not a preference',
+        body: 'Google and AI crawlers need to see real content quickly. A site that relies entirely on client-side rendering risks pages being indexed empty or slowly. Server-side rendering or static generation (what frameworks like Nuxt provide) makes sure the full page — headings, text, links — is present in the very first response.'
+      },
+      {
+        heading: 'Core Web Vitals reflect real user experience',
+        body: 'Largest Contentful Paint, Cumulative Layout Shift, and interaction responsiveness are measured from real visitor sessions, not just lab tests. Slow images, render-blocking fonts, and layout jumps caused by late-loading content directly hurt these scores — and Google treats them as a ranking signal.'
+      },
+      {
+        heading: 'Structured data helps both search and AI answer engines',
+        body: 'Schema.org markup (Organization, Service, FAQPage, BreadcrumbList) gives crawlers an explicit, unambiguous description of what a page is about. This matters even more now that AI answer engines like ChatGPT and Perplexity cite and summarize web content — clear structure makes a page easier to extract and quote correctly.'
+      }
+    ]
   }
 ]
 

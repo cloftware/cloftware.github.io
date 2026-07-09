@@ -16,7 +16,9 @@ export default defineEventHandler((event) => {
     { loc: '/industries', priority: '0.7', changefreq: 'monthly' },
     { loc: '/about', priority: '0.8', changefreq: 'monthly' },
     { loc: '/contact', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/blog', priority: '0.8', changefreq: 'daily' }
+    { loc: '/blog', priority: '0.8', changefreq: 'daily' },
+    { loc: '/privacy', priority: '0.3', changefreq: 'yearly' },
+    { loc: '/terms', priority: '0.3', changefreq: 'yearly' }
   ]
 
   const servicePages = services.map((service) => ({

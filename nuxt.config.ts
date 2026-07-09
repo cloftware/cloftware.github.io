@@ -49,6 +49,8 @@ export default defineNuxtConfig({
         '/about',
         '/contact',
         '/blog',
+        '/privacy',
+        '/terms',
         '/sitemap.xml',
         '/llms.txt',
         ...services.map((service) => `/services/${service.slug}`),
@@ -70,7 +72,9 @@ export default defineNuxtConfig({
     '/about': { prerender: true },
     '/contact': { prerender: true },
     '/blog': { prerender: true },
-    '/blog/**': { prerender: true }
+    '/blog/**': { prerender: true },
+    '/privacy': { prerender: true },
+    '/terms': { prerender: true }
   },
   runtimeConfig: {
     public: {

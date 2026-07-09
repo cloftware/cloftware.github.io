@@ -38,8 +38,8 @@
       <div class="mt-12 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row">
         <p>&copy; {{ year }} Cloftware. All rights reserved.</p>
         <div class="flex gap-5">
-          <a href="/#contact" class="hover:text-[#5eb6e8]">Privacy Policy</a>
-          <a href="/#contact" class="hover:text-[#5eb6e8]">Terms</a>
+          <a href="/privacy" class="hover:text-[#5eb6e8]">Privacy Policy</a>
+          <a href="/terms" class="hover:text-[#5eb6e8]">Terms</a>
           <a href="mailto:hello@cloftware.com" class="hover:text-[#5eb6e8]">hello@cloftware.com</a>
         </div>
       </div>

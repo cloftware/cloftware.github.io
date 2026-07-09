@@ -33,6 +33,16 @@
       </div>
 
       <div class="reveal relative min-h-[420px] sm:min-h-[480px]" @mousemove="onMouseMove" @mouseleave="resetMouse">
+        <div
+          v-for="node in nodes"
+          :key="node.label"
+          class="absolute z-10 hidden rounded-2xl border border-[var(--border)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--ink)] shadow-lg sm:block"
+          :class="node.class"
+          :style="parallaxStyle(node.depth)"
+        >
+          <span class="mr-2 text-[var(--brand)]">{{ node.icon }}</span>{{ node.label }}
+        </div>
+
         <div class="card premium-shadow relative mx-auto h-full max-w-[540px] overflow-hidden rounded-[1.75rem] p-4 sm:p-5" :style="parallaxStyle(0.025)">
           <div class="rounded-2xl border border-[var(--border)] bg-[var(--bg-soft)] p-4">
             <div class="flex items-center justify-between">
@@ -61,16 +71,6 @@
             </div>
           </div>
 
-          <div
-            v-for="node in nodes"
-            :key="node.label"
-            class="absolute hidden rounded-2xl border border-[var(--border)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--ink)] shadow-lg sm:block"
-            :class="node.class"
-            :style="parallaxStyle(node.depth)"
-          >
-            <span class="mr-2 text-[var(--brand)]">{{ node.icon }}</span>{{ node.label }}
-          </div>
-
           <div class="mt-4 rounded-2xl border border-[var(--border)] bg-white p-4 shadow-sm">
             <div class="flex items-center justify-between gap-4">
               <div>
@@ -96,8 +96,8 @@ import { technologies } from '~/data/technologies'
 const mouse = reactive({ x: 0, y: 0 })
 
 const nodes = [
-  { label: 'Cloud', icon: '01', class: 'left-2 top-24 float-slow', depth: 0.06 },
-  { label: 'AI Engine', icon: '02', class: 'right-2 top-20 float-medium', depth: -0.05 }
+  { label: 'Cloud', icon: '01', class: '-left-4 top-8 float-slow', depth: 0.06 },
+  { label: 'AI Engine', icon: '02', class: '-right-4 bottom-12 float-medium', depth: -0.05 }
 ]
 
 const onMouseMove = (event: MouseEvent) => {

@@ -9,7 +9,14 @@
       </a>
 
       <div class="hidden min-w-0 items-center gap-0.5 lg:flex xl:gap-1">
-        <a v-for="item in navItems" :key="item.href" :href="item.href" class="shrink-0 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold text-[var(--body)] transition hover:bg-[var(--brand-light)] hover:text-[var(--brand-dark)] xl:px-3.5 xl:text-[0.86rem]">
+        <a
+          v-for="item in navItems"
+          :key="item.href"
+          :href="item.href"
+          class="shrink-0 rounded-full px-2.5 py-2 text-[0.82rem] font-semibold transition hover:bg-[var(--brand-light)] hover:text-[var(--brand-dark)] xl:px-3.5 xl:text-[0.86rem]"
+          :class="isActive(item.href) ? 'bg-[var(--brand-light)] text-[var(--brand-dark)]' : 'text-[var(--body)]'"
+          :aria-current="isActive(item.href) ? 'page' : undefined"
+        >
           {{ item.label }}
         </a>
       </div>
@@ -32,7 +39,15 @@
     <Transition name="menu">
       <div v-if="menuOpen" id="mobile-menu" class="section-wrap pb-5 lg:hidden">
         <div class="card rounded-2xl p-3 shadow-[0_20px_48px_-16px_rgba(16,24,40,0.18)]">
-          <a v-for="item in navItems" :key="item.href" :href="item.href" class="block rounded-xl px-4 py-3 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--brand-light)]" @click="menuOpen = false">
+          <a
+            v-for="item in navItems"
+            :key="item.href"
+            :href="item.href"
+            class="block rounded-xl px-4 py-3 text-sm font-semibold hover:bg-[var(--brand-light)]"
+            :class="isActive(item.href) ? 'bg-[var(--brand-light)] text-[var(--brand-dark)]' : 'text-[var(--ink)]'"
+            :aria-current="isActive(item.href) ? 'page' : undefined"
+            @click="menuOpen = false"
+          >
             {{ item.label }}
           </a>
           <div class="mt-2 grid gap-2 border-t border-[var(--border)] p-1 pt-3">
@@ -48,6 +63,7 @@
 <script setup lang="ts">
 const menuOpen = ref(false)
 const scrolled = ref(false)
+const route = useRoute()
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -59,6 +75,11 @@ const navItems = [
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' }
 ]
+
+const isActive = (href: string) => {
+  if (href === '/') return route.path === '/'
+  return route.path === href || route.path.startsWith(`${href}/`)
+}
 
 onMounted(() => {
   const updateScrolled = () => {
