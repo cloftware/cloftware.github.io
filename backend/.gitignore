@@ -1,4 +1,29 @@
+# Node modules
 node_modules/
-.wrangler/
-.dev.vars
+
+# Build folders
 dist/
+.output/
+.nuxt/
+.nitro/
+.cache/
+
+# Wrangler
+.wrangler/
+
+# Environment files
+.env
+.env.*
+backend/.env
+backend/.env.*
+!.env.example
+!backend/.env.example
+
+# Local dev vars
+.dev.vars
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
