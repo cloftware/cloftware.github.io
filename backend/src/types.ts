@@ -3,9 +3,12 @@ export interface Env {
   SUPABASE_SERVICE_ROLE_KEY: string;
   SMTP_HOST: string;
   SMTP_PORT: string;
-  SMTP_USERNAME: string;
-  SMTP_PASSWORD: string;
-  MAIL_FROM: string;
+  SMTP_USERNAME?: string;
+  SMTP_PASSWORD?: string;
+  SMTP_USER?: string;
+  SMTP_PASS?: string;
+  MAIL_FROM?: string;
+  SMTP_FROM?: string;
   MAIL_TO: string;
   ALLOWED_ORIGINS: string;
 }

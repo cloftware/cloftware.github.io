@@ -18,7 +18,7 @@
 
             <div>
               <h2 class="font-display text-lg font-extrabold text-[var(--ink)]">Contact and newsletter forms</h2>
-              <p class="mt-3">The contact form and newsletter signup on this site open your own email client with a pre-filled message addressed to hello@cloftware.com. We do not run a server that stores or processes this data — the message only reaches us once you choose to send it from your own email account, the same as if you'd emailed us directly.</p>
+              <p class="mt-3">When you submit the contact form or newsletter signup, we process the information through our form service. Contact requests are stored securely so we can respond, and newsletter signups are stored to manage subscriptions. We use the information only for the purpose you submitted it for.</p>
             </div>
 
             <div>

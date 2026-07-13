@@ -39,6 +39,11 @@ contact.post('/contact', enforceOrigin, async (c) => {
     console.error('Could not store contact message', error.message);
     return c.json({ success: false, message: 'We could not send your message. Please try again.' }, 503);
   }
-  c.executionCtx.waitUntil(sendContactEmails(c.env, payload, ip, createdAt).catch((error) => console.error('Contact email delivery failed', error)));
+  try {
+    await sendContactEmails(c.env, payload, ip, createdAt);
+  } catch (error) {
+    console.error('Contact email delivery failed', error);
+    return c.json({ success: false, message: 'We received your message, but could not send the confirmation email. Please check the mail configuration and try again.' }, 502);
+  }
   return c.json({ success: true, message: "Thank you! We'll get back to you soon." }, 201);
 });

@@ -4,8 +4,8 @@ compatibility_date = "2026-07-13"
 workers_dev = true
 
 [vars]
-ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com"
+ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com,http://localhost:3000,http://127.0.0.1:3000"
 MAIL_FROM = "hello@cloftware.com"
 MAIL_TO = "hello@cloftware.com"
-SMTP_HOST = "smtppro.zoho.in"
-SMTP_PORT = "465"
+SMTP_HOST = "smtp-relay.brevo.com"
+SMTP_PORT = "587"

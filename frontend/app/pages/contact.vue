@@ -14,7 +14,7 @@
         <div class="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <div class="reveal card rounded-[1.75rem] p-6 md:p-10">
             <h2 class="font-display text-2xl font-extrabold text-[var(--ink)] md:text-3xl">Tell us about your project</h2>
-            <p class="mt-3 text-sm leading-6 text-[var(--body)]">Fill out the form and your email client will open with everything ready to send.</p>
+            <p class="mt-3 text-sm leading-6 text-[var(--body)]">Tell us what you need and we'll reply by email with the next steps.</p>
 
             <form class="mt-8 grid gap-5 sm:grid-cols-2" @submit.prevent="submitForm">
               <div class="sm:col-span-1">
@@ -39,9 +39,17 @@
                 <label for="message" class="mb-2 block text-xs font-bold uppercase tracking-[0.12em] text-[var(--muted)]">Project Details</label>
                 <textarea id="message" v-model="form.message" required rows="5" placeholder="Tell us about your goals, timeline, and budget." class="w-full resize-none rounded-xl border border-[var(--border)] bg-white px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--brand)]/50" />
               </div>
+              <div class="sr-only" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off">
+              </div>
               <div class="sm:col-span-2">
-                <button type="submit" class="btn-primary w-full sm:w-fit">Send Message <IconsArrowRight /></button>
-                <p v-if="submitted" class="mt-4 text-sm font-semibold text-[var(--brand-dark)]">Thanks! Your email client should now open with your message ready to send.</p>
+                <button type="submit" class="btn-primary w-full sm:w-fit disabled:cursor-not-allowed disabled:opacity-60" :disabled="isSubmitting">
+                  {{ isSubmitting ? 'Sending...' : 'Send Message' }} <IconsArrowRight />
+                </button>
+                <p v-if="formStatus.message" class="mt-4 text-sm font-semibold" :class="formStatus.type === 'success' ? 'text-[var(--brand-dark)]' : 'text-red-600'" role="status">
+                  {{ formStatus.message }}
+                </p>
               </div>
             </form>
           </div>
@@ -121,10 +129,14 @@ const form = reactive({
   email: '',
   company: '',
   service: serviceOptions[0],
-  message: ''
+  message: '',
+  website: ''
 })
 
-const submitted = ref(false)
+const config = useRuntimeConfig()
+const apiBase = String(config.public.apiBase).replace(/\/$/, '')
+const isSubmitting = ref(false)
+const formStatus = reactive({ type: '' as 'success' | 'error' | '', message: '' })
 
 const contactCards = [
   { title: 'Email', value: 'hello@cloftware.com', detail: 'General inquiries and new project requests.' },
@@ -132,18 +144,25 @@ const contactCards = [
   { title: 'Support', value: '24/7 Availability', detail: 'Ongoing clients get monitored, always-on support.' }
 ]
 
-const submitForm = () => {
-  const subject = encodeURIComponent(`New Project Inquiry: ${form.service}`)
-  const bodyLines = [
-    `Name: ${form.name}`,
-    `Email: ${form.email}`,
-    `Company: ${form.company || 'N/A'}`,
-    `Service: ${form.service}`,
-    '',
-    form.message
-  ]
-  const body = encodeURIComponent(bodyLines.join('\n'))
-  window.location.href = `mailto:hello@cloftware.com?subject=${subject}&body=${body}`
-  submitted.value = true
+const submitForm = async () => {
+  isSubmitting.value = true
+  formStatus.type = ''
+  formStatus.message = ''
+
+  try {
+    const response = await $fetch<{ message: string }>(`${apiBase}/api/contact`, {
+      method: 'POST',
+      body: { ...form }
+    })
+    formStatus.type = 'success'
+    formStatus.message = response.message
+    Object.assign(form, { name: '', email: '', company: '', service: serviceOptions[0], message: '', website: '' })
+  } catch (error) {
+    const apiError = error as { data?: { message?: string } }
+    formStatus.type = 'error'
+    formStatus.message = apiError.data?.message || 'We could not send your message. Please try again or email hello@cloftware.com.'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>

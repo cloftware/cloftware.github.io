@@ -26,9 +26,10 @@
           <h3 class="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-white">Newsletter</h3>
           <p class="mt-4 text-sm leading-6 text-slate-400">Occasional notes on what we’re building and shipping. No spam.</p>
           <form class="mt-5 flex gap-2" @submit.prevent="subscribe">
-            <input v-model="newsletterEmail" aria-label="Email address" type="email" placeholder="Email address" class="min-w-0 flex-1 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-[#5eb6e8]/60">
-            <button class="btn-primary min-h-11 px-4 text-sm" type="submit">Join</button>
+            <input v-model="newsletterEmail" aria-label="Email address" type="email" required placeholder="Email address" class="min-w-0 flex-1 rounded-full border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-[#5eb6e8]/60">
+            <button class="btn-primary min-h-11 px-4 text-sm disabled:cursor-not-allowed disabled:opacity-60" type="submit" :disabled="isSubscribing">{{ isSubscribing ? 'Joining...' : 'Join' }}</button>
           </form>
+          <p v-if="newsletterStatus.message" class="mt-3 text-sm font-semibold" :class="newsletterStatus.type === 'success' ? 'text-[#5eb6e8]' : 'text-red-300'" role="status">{{ newsletterStatus.message }}</p>
           <div class="mt-6 flex gap-3 text-sm font-bold text-slate-400">
             <a href="https://www.linkedin.com/company/cloftware" class="hover:text-[#5eb6e8]" target="_blank" rel="noopener">LinkedIn</a>
             <NuxtLink to="/blog" class="hover:text-[#5eb6e8]">Blog</NuxtLink>
@@ -53,6 +54,10 @@ import { portfolioProjects } from '~/data/portfolio'
 
 const year = new Date().getFullYear()
 const newsletterEmail = ref('')
+const config = useRuntimeConfig()
+const apiBase = String(config.public.apiBase).replace(/\/$/, '')
+const isSubscribing = ref(false)
+const newsletterStatus = reactive({ type: '' as 'success' | 'error' | '', message: '' })
 const columns = [
   {
     title: 'Company',
@@ -80,9 +85,25 @@ const columns = [
   }
 ]
 
-const subscribe = () => {
-  const subject = encodeURIComponent('Subscribe to Cloftware newsletter')
-  const body = encodeURIComponent(`Please add me to the Cloftware newsletter.${newsletterEmail.value ? `\n\nEmail: ${newsletterEmail.value}` : ''}`)
-  window.location.href = `mailto:hello@cloftware.com?subject=${subject}&body=${body}`
+const subscribe = async () => {
+  isSubscribing.value = true
+  newsletterStatus.type = ''
+  newsletterStatus.message = ''
+
+  try {
+    const response = await $fetch<{ message: string }>(`${apiBase}/api/newsletter`, {
+      method: 'POST',
+      body: { email: newsletterEmail.value }
+    })
+    newsletterStatus.type = 'success'
+    newsletterStatus.message = response.message
+    newsletterEmail.value = ''
+  } catch (error) {
+    const apiError = error as { data?: { message?: string } }
+    newsletterStatus.type = 'error'
+    newsletterStatus.message = apiError.data?.message || 'Unable to subscribe right now. Please try again.'
+  } finally {
+    isSubscribing.value = false
+  }
 }
 </script>

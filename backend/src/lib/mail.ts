@@ -41,15 +41,22 @@ function mimeMessage(from: string, to: string, subject: string, html: string, te
   ].join('\r\n');
 }
 
-async function sendSmtp(env: Env, to: string, subject: string, html: string, text: string): Promise<void> {
+async function sendSmtp(env: Env, from: string, to: string, subject: string, html: string, text: string): Promise<void> {
   const port = Number(env.SMTP_PORT);
-  if (!Number.isInteger(port) || port !== 465) {
-    throw new Error('Zoho SMTP must use implicit TLS on port 465 in this Worker');
+  const username = env.SMTP_USERNAME || env.SMTP_USER;
+  const password = env.SMTP_PASSWORD || env.SMTP_PASS;
+  const usesStartTls = port === 587 || port === 2525;
+  if (!Number.isInteger(port) || (port !== 465 && !usesStartTls)) {
+    throw new Error('SMTP port must be 465, 587, or 2525');
+  }
+  if (!username || !password) {
+    throw new Error('Missing SMTP credentials');
   }
 
-  const socket = connect({ hostname: env.SMTP_HOST, port }, { secureTransport: 'on', allowHalfOpen: false });
-  const reader = socket.readable.pipeThrough(new TextDecoderStream()).getReader();
-  const writer = socket.writable.getWriter();
+  let socket = connect({ hostname: env.SMTP_HOST, port }, { secureTransport: usesStartTls ? 'starttls' : 'on', allowHalfOpen: false });
+  let reader = socket.readable.getReader();
+  let writer = socket.writable.getWriter();
+  let decoder = new TextDecoder();
   let pending = '';
 
   const readLine = async (): Promise<string> => {
@@ -62,7 +69,7 @@ async function sendSmtp(env: Env, to: string, subject: string, html: string, tex
       }
       const { value, done } = await reader.read();
       if (done) throw new Error('SMTP server closed the connection unexpectedly');
-      pending += value;
+      pending += decoder.decode(value, { stream: true });
     }
   };
   const readResponse = async (expected: number[]): Promise<string> => {
@@ -86,13 +93,24 @@ async function sendSmtp(env: Env, to: string, subject: string, html: string, tex
   try {
     await readResponse([220]);
     await command('EHLO cloftware.com', [250]);
+    if (usesStartTls) {
+      await command('STARTTLS', [220]);
+      reader.releaseLock();
+      writer.releaseLock();
+      socket = socket.startTls();
+      reader = socket.readable.getReader();
+      writer = socket.writable.getWriter();
+      decoder = new TextDecoder();
+      pending = '';
+      await command('EHLO cloftware.com', [250]);
+    }
     await command('AUTH LOGIN', [334]);
-    await command(btoa(env.SMTP_USERNAME), [334]);
-    await command(btoa(env.SMTP_PASSWORD), [235]);
-    await command(`MAIL FROM:<${formatAddress(env.MAIL_FROM)}>`, [250]);
+    await command(btoa(username), [334]);
+    await command(btoa(password), [235]);
+    await command(`MAIL FROM:<${formatAddress(from)}>`, [250]);
     await command(`RCPT TO:<${formatAddress(to)}>`, [250, 251]);
     await command('DATA', [354]);
-    await writer.write(encoder.encode(`${mimeMessage(env.MAIL_FROM, to, subject, html, text)}\r\n.\r\n`));
+    await writer.write(encoder.encode(`${mimeMessage(from, to, subject, html, text)}\r\n.\r\n`));
     await readResponse([250]);
     await command('QUIT', [221]);
   } finally {
@@ -103,6 +121,8 @@ async function sendSmtp(env: Env, to: string, subject: string, html: string, tex
 }
 
 export async function sendContactEmails(env: Env, contact: ContactPayload, ip: string, createdAt: string): Promise<void> {
+  const from = env.MAIL_FROM || env.SMTP_FROM;
+  if (!from) throw new Error('Missing sender email address');
   const service = contact.service || 'General enquiry';
   const details = [
     ['Name', contact.name], ['Email', contact.email], ['Company', contact.company || 'Not provided'],
@@ -112,6 +132,6 @@ export async function sendContactEmails(env: Env, contact: ContactPayload, ip: s
   const adminHtml = `<div style="font-family:Arial,sans-serif;color:#172033;line-height:1.5"><h2>New Contact Request</h2><table style="border-collapse:collapse">${details.map(([label, value]) => `<tr><th align="left" style="padding:8px 14px 8px 0;vertical-align:top">${escapeHtml(label)}</th><td style="padding:8px 0;white-space:pre-wrap">${escapeHtml(value)}</td></tr>`).join('')}</table></div>`;
   const customerText = `Hi ${contact.name},\n\nThank you for contacting Cloftware. We have received your message and a member of our team will get back to you soon.\n\nBest regards,\nCloftware Team`;
   const customerHtml = `<div style="margin:0;background:#f6f8fb;padding:32px;font-family:Arial,sans-serif;color:#172033"><div style="max-width:600px;margin:auto;background:#fff;border-radius:12px;padding:36px"><h1 style="margin-top:0;color:#14213d">Thanks for contacting Cloftware</h1><p>Hi ${escapeHtml(contact.name)},</p><p>Thank you for reaching out to Cloftware. We have received your message and a member of our team will get back to you soon.</p><p style="margin-bottom:0">Best regards,<br><strong>The Cloftware Team</strong></p></div></div>`;
-  await sendSmtp(env, env.MAIL_TO, `New Contact Request - ${service}`, adminHtml, adminText);
-  await sendSmtp(env, contact.email, 'Thanks for contacting Cloftware', customerHtml, customerText);
+  await sendSmtp(env, from, env.MAIL_TO, `New Contact Request - ${service}`, adminHtml, adminText);
+  await sendSmtp(env, from, contact.email, 'Thanks for contacting Cloftware', customerHtml, customerText);
 }
