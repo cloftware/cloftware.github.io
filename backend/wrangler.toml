@@ -1,4 +1,4 @@
-name = "cloftware-contact-api"
+name = "cloftware-backend"
 main = "src/index.ts"
 compatibility_date = "2026-07-13"
 workers_dev = true
