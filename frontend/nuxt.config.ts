@@ -79,8 +79,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl,
-      // Local Worker by default. Set NUXT_PUBLIC_API_BASE to the deployed Worker URL for production builds.
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://127.0.0.1:8787'
+      // Production API URL (change to localhost for development)
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://api.cloftware.com'
     }
   }
 })

@@ -1,0 +1,12 @@
+name = "cloftware-frontend"
+type = "pages"
+
+[env.production]
+vars = {
+  NUXT_PUBLIC_API_URL = "https://api.cloftware.com/api"
+}
+
+[env.preview]
+vars = {
+  NUXT_PUBLIC_API_URL = "https://api.cloftware.com/api"
+}

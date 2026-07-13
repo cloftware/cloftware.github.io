@@ -1,4 +1,4 @@
-name = "cloftware-backend"  # Changed from "cloftware-contact-api"
+name = "cloftware-backend"
 main = "src/index.ts"
 compatibility_date = "2026-07-13"
 workers_dev = true
@@ -9,3 +9,5 @@ MAIL_FROM = "hello@cloftware.com"
 MAIL_TO = "hello@cloftware.com"
 SMTP_HOST = "smtp-relay.brevo.com"
 SMTP_PORT = "587"
+SMTP_USER = "b1e19c001@smtp-brevo.com"
+# All secrets are set in Cloudflare Dashboard
