@@ -11,7 +11,7 @@ dist/
 # Wrangler
 .wrangler/
 
-# Environment files
+# Environment file
 .env
 .env.*
 backend/.env
