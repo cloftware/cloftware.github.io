@@ -1,0 +1,11 @@
+name = "cloftware-contact-api"
+main = "src/index.ts"
+compatibility_date = "2026-07-13"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com"
+MAIL_FROM = "hello@cloftware.com"
+MAIL_TO = "hello@cloftware.com"
+SMTP_HOST = "smtppro.zoho.in"
+SMTP_PORT = "465"
