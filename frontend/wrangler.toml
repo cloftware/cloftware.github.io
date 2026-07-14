@@ -3,12 +3,12 @@ pages_build_output_dir = ".output/public"
 
 [env.production]
 vars = {
-  ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com,http://localhost:3000,http://127.0.0.1:3000"
+  ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com,http://localhost:3000,http://127.0.0.1:3000",
   NUXT_PUBLIC_API_BASE = "https://api.cloftware.com"
 }
 
 [env.preview]
 vars = {
-  ALLOWED_ORIGINS = "https://cloftware-frontend.pages.dev,http://localhost:3000"
+  ALLOWED_ORIGINS = "https://cloftware-frontend.pages.dev,http://localhost:3000",
   NUXT_PUBLIC_API_BASE = "https://api.cloftware.com"
 }
