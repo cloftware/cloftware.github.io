@@ -1,0 +1,6 @@
+name = "cloftware-backend"
+main = "src/index.ts"
+compatibility_date = "2026-07-14"
+
+[observability]
+enabled = true
