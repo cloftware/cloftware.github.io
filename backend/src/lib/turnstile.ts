@@ -1,6 +1,6 @@
 import type { Env } from '../types';
 
-const TURNSTILE_VERIFY_ENDPOINT = 'https://challenge.cloudflare.com/turnstile/v0/siteverify';
+const TURNSTILE_VERIFY_ENDPOINT = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 export async function verifyTurnstile(env: Env, token: string, ip: string): Promise<boolean> {
   if (!env.TURNSTILE_SECRET_KEY || !token) return false;

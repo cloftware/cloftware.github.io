@@ -148,7 +148,7 @@ useHead({
         }
       })
     },
-    { src: 'https://challenge.cloudflare.com/turnstile/v0/api.js', async: true, defer: true }
+    { src: 'https://challenges.cloudflare.com/turnstile/v0/api.js', async: true, defer: true }
   ]
 })
 
