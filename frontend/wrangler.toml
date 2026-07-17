@@ -1,0 +1,12 @@
+keep_vars = true
+name = "cloftware-frontend"
+main = ".output/server/index.mjs"
+compatibility_date = "2026-07-14"
+
+[observability]
+enabled = true
+
+[vars]
+NUXT_PUBLIC_TURNSTILE_SITE_KEY = "0x4AAAAAAD4AV--MnATs5XUd"
+NUXT_PUBLIC_API_BASE_URL = "https://api.cloftware.com/api"
+ 
