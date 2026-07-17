@@ -6,6 +6,7 @@ export interface Env {
   MAIL_FROM_NAME: string;
   MAIL_TO: string;
   ALLOWED_ORIGINS: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 export type ContactPayload = {

@@ -44,7 +44,10 @@
                 <input id="website" v-model="form.website" type="text" tabindex="-1" autocomplete="off">
               </div>
               <div class="sm:col-span-2">
-                <button type="submit" class="btn-primary w-full sm:w-fit disabled:cursor-not-allowed disabled:opacity-60" :disabled="isSubmitting">
+                <div ref="turnstileEl" />
+              </div>
+              <div class="sm:col-span-2">
+                <button type="submit" class="btn-primary w-full sm:w-fit disabled:cursor-not-allowed disabled:opacity-60" :disabled="isSubmitting || !turnstileToken">
                   {{ isSubmitting ? 'Sending...' : 'Send Message' }} <IconsArrowRight />
                 </button>
 
@@ -144,7 +147,8 @@ useHead({
           ]
         }
       })
-    }
+    },
+    { src: 'https://challenge.cloudflare.com/turnstile/v0/api.js', async: true, defer: true }
   ]
 })
 
@@ -161,8 +165,40 @@ const form = reactive({
 
 const config = useRuntimeConfig()
 const apiBase = String(config.public.apiBase).replace(/\/$/, '')
+const turnstileSiteKey = String(config.public.turnstileSiteKey || '')
 const isSubmitting = ref(false)
 const formStatus = reactive({ type: '' as 'success' | 'error' | '', message: '' })
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (container: HTMLElement, options: Record<string, unknown>) => string
+      reset: (widgetId?: string) => void
+    }
+  }
+}
+
+const turnstileEl = ref<HTMLElement | null>(null)
+const turnstileToken = ref('')
+let turnstileWidgetId: string | undefined
+
+function renderTurnstile() {
+  if (!window.turnstile || !turnstileEl.value || turnstileWidgetId) return
+  turnstileWidgetId = window.turnstile.render(turnstileEl.value, {
+    sitekey: turnstileSiteKey,
+    callback: (token: string) => { turnstileToken.value = token },
+    'expired-callback': () => { turnstileToken.value = '' },
+    'error-callback': () => { turnstileToken.value = '' }
+  })
+}
+
+onMounted(() => {
+  const tryRender = () => {
+    if (window.turnstile) renderTurnstile()
+    else setTimeout(tryRender, 100)
+  }
+  tryRender()
+})
 
 const contactCards = [
   { title: 'Email', value: 'hello@cloftware.com', detail: 'General inquiries and new project requests.' },
@@ -178,7 +214,7 @@ const submitForm = async () => {
   try {
     const response = await $fetch<{ message: string }>(`${apiBase}/api/contact`, {
       method: 'POST',
-      body: { ...form }
+      body: { ...form, turnstileToken: turnstileToken.value }
     })
     formStatus.type = 'success'
     formStatus.message = response.message
@@ -189,6 +225,8 @@ const submitForm = async () => {
     formStatus.message = apiError.data?.message || 'We could not send your message. Please try again or email hello@cloftware.com.'
   } finally {
     isSubmitting.value = false
+    turnstileToken.value = ''
+    if (turnstileWidgetId) window.turnstile?.reset(turnstileWidgetId)
   }
 }
 </script>

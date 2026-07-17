@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { z } from 'zod';
 import { sendContactEmails } from '../lib/mail';
 import { getSupabase } from '../lib/supabase';
+import { verifyTurnstile } from '../lib/turnstile';
 import { clientIp, enforceOrigin } from '../middleware/security';
 import type { ContactPayload, Env } from '../types';
 
@@ -13,6 +14,7 @@ const contactSchema = z.object({
   service: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().min(20, 'Message must be at least 20 characters.').max(5000),
   website: z.string().max(0).optional().default(''),
+  turnstileToken: z.string().min(1, 'Please complete the verification challenge.'),
 }).strict();
 
 export const contact = new Hono<{ Bindings: Env }>();
@@ -31,6 +33,9 @@ contact.post('/contact', enforceOrigin, async (c) => {
   }
   const domain = input.email.slice(input.email.lastIndexOf('@') + 1).toLowerCase();
   if (disposableDomains.has(domain)) return c.json({ success: false, message: 'Please use a business or personal email address.' }, 400);
+
+  const turnstileOk = await verifyTurnstile(c.env, input.turnstileToken, ip);
+  if (!turnstileOk) return c.json({ success: false, message: 'Verification failed. Please refresh the page and try again.' }, 400);
 
   const payload: ContactPayload = { name: input.name, email: input.email.toLowerCase(), company: input.company, service: input.service, message: input.message };
   const createdAt = new Date().toISOString();

@@ -80,7 +80,9 @@ export default defineNuxtConfig({
     public: {
       siteUrl,
       // Local Worker by default. Set NUXT_PUBLIC_API_BASE to the deployed Worker URL for production builds.
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://api.cloftware.com'
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://api.cloftware.com',
+      // Cloudflare Turnstile site key (public, safe to expose in the client bundle).
+      turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || ''
     }
   }
 })
