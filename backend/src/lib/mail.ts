@@ -77,7 +77,7 @@ export async function sendContactEmails(env: Env, contact: ContactPayload, ip: s
       <td align="center" style="padding:32px 16px;">
         <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background-color:#ffffff;border-radius:16px;overflow:hidden;">
           <tr>
-            <td class="email-header-padding" style="background-color:#007cc3;background-image:linear-gradient(135deg,#1c8ed6,#007cc3 60%,#045a8c);padding:32px 40px;text-align:center;">
+            <td class="email-header-padding" style="background-color:#ffffff;padding:32px 40px;text-align:center;border-bottom:4px solid #007cc3;">
               <img src="https://cloftware.com/cloftware-logo.svg" width="150" height="38" alt="Cloftware" style="display:block;margin:0 auto;border:0;outline:none;text-decoration:none;max-width:150px;height:auto;">
             </td>
           </tr>
