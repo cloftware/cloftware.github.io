@@ -37,7 +37,7 @@ contact.post('/contact', enforceOrigin, async (c) => {
   const { error } = await getSupabase(c.env).from('contact_messages').insert({ ...payload, company: payload.company || null, service: payload.service || null, ip, user_agent: c.req.header('User-Agent') || null, created_at: createdAt });
   if (error) {
     console.error('Could not store contact message', error.message);
-    return c.json({ success: false, message: 'We could not send your message. Please try again.' }, 503);
+    return c.json({ success: false, message: "We couldn't save your message just now. Please try again in a moment, or email hello@cloftware.com directly." }, 503);
   }
   try {
     await sendContactEmails(c.env, payload, ip, createdAt);
@@ -45,7 +45,7 @@ contact.post('/contact', enforceOrigin, async (c) => {
     // The message is already saved in Supabase, so treat a mail failure as a soft success:
     // the lead is not lost, and the user is not shown an error for something we can follow up on.
     console.error('Contact email delivery failed', error);
-    return c.json({ success: true, message: "Thank you! We'll get back to you soon." }, 201);
+    return c.json({ success: true, message: "We've received your project details and a real person will reply within 1-2 business days." }, 201);
   }
-  return c.json({ success: true, message: "Thank you! We'll get back to you soon." }, 201);
+  return c.json({ success: true, message: "We've received your project details and a real person will reply within 1-2 business days." }, 201);
 });

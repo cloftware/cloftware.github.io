@@ -47,9 +47,35 @@
                 <button type="submit" class="btn-primary w-full sm:w-fit disabled:cursor-not-allowed disabled:opacity-60" :disabled="isSubmitting">
                   {{ isSubmitting ? 'Sending...' : 'Send Message' }} <IconsArrowRight />
                 </button>
-                <p v-if="formStatus.message" class="mt-4 text-sm font-semibold" :class="formStatus.type === 'success' ? 'text-[var(--brand-dark)]' : 'text-red-600'" role="status">
-                  {{ formStatus.message }}
-                </p>
+
+                <Transition name="status-pop">
+                  <div
+                    v-if="formStatus.message"
+                    role="status"
+                    class="mt-5 flex items-start gap-3 rounded-2xl border p-4 shadow-sm sm:p-5"
+                    :class="formStatus.type === 'success' ? 'border-[var(--brand)]/25 bg-[var(--brand-light)]' : 'border-red-200 bg-red-50'"
+                  >
+                    <span
+                      class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+                      :class="formStatus.type === 'success' ? 'bg-[var(--brand)] text-white' : 'bg-red-600 text-white'"
+                    >
+                      <svg v-if="formStatus.type === 'success'" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 0 1.415l-7.5 7.5a1 1 0 0 1-1.415 0l-3.5-3.5a1 1 0 1 1 1.415-1.414L8.5 12.086l6.79-6.796a1 1 0 0 1 1.414 0Z" clip-rule="evenodd" />
+                      </svg>
+                      <svg v-else viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.72-1.36 3.486 0l6.28 11.164c.75 1.333-.213 2.987-1.743 2.987H3.72c-1.53 0-2.493-1.654-1.743-2.987L8.257 3.1ZM11 13a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-.25-5.75a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 1.5 0v-3.5Z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                    <div>
+                      <p class="font-display text-sm font-extrabold" :class="formStatus.type === 'success' ? 'text-[var(--brand-dark)]' : 'text-red-700'">
+                        {{ formStatus.type === 'success' ? 'Message sent — thank you!' : 'Something went wrong' }}
+                      </p>
+                      <p class="mt-1 text-sm leading-6" :class="formStatus.type === 'success' ? 'text-[var(--body)]' : 'text-red-600'">
+                        {{ formStatus.message }}
+                      </p>
+                    </div>
+                  </div>
+                </Transition>
               </div>
             </form>
           </div>
@@ -166,3 +192,23 @@ const submitForm = async () => {
   }
 }
 </script>
+
+<style scoped>
+.status-pop-enter-active {
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.status-pop-leave-active {
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.status-pop-enter-from {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+}
+
+.status-pop-leave-to {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+}
+</style>
