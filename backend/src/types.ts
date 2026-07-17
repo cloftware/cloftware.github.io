@@ -1,11 +1,9 @@
 export interface Env {
   SUPABASE_URL: string;
   SUPABASE_SERVICE_ROLE_KEY: string;
-  SMTP_HOST: string;
-  SMTP_PORT: string;
-  SMTP_USER: string;
-  SMTP_PASS: string;
-  SMTP_FROM: string;
+  BREVO_API_KEY: string;
+  MAIL_FROM: string;
+  MAIL_FROM_NAME: string;
   MAIL_TO: string;
   ALLOWED_ORIGINS: string;
 }

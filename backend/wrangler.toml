@@ -1,6 +1,14 @@
+keep_vars = true
 name = "cloftware-backend"
 main = "src/index.ts"
 compatibility_date = "2026-07-14"
 
 [observability]
 enabled = true
+
+[vars]
+SUPABASE_URL = "https://tmbdslgyanvnuzdxymfd.supabase.co"
+MAIL_FROM = "hello.cloftware@gmail.com"
+MAIL_FROM_NAME = "Cloftware"
+MAIL_TO = "hello.cloftware@gmail.com"
+ALLOWED_ORIGINS = "https://cloftware.com,https://www.cloftware.com,http://localhost:3000,http://127.0.0.1:3000"
